@@ -1,0 +1,858 @@
+[2025-12-04T14:27:42.651] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-12-04T14:27:51.225] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: false,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-12-04T14:28:39.846] [DEBUG] debug-file - hvigorfile, require result:  { appTasks: [Getter] }
+[2025-12-04T14:28:40.261] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-12-04T14:28:40.273] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-12-04T14:28:40.312] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-12-04T14:28:40.520] [DEBUG] debug-file - Project task initialization takes 28 ms 
+[2025-12-04T14:28:40.619] [DEBUG] debug-file - project has submodules:entry
+[2025-12-04T14:28:40.601] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-12-04T14:27:42.654] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.0.0', dependencies: {} }
+[2025-12-04T14:28:40.645] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:28:40.673] [DEBUG] debug-file - entry : clean cost memory 0.12364959716796875
+[2025-12-04T14:28:40.735] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-12-04T14:27:51.225] [DEBUG] debug-file - Since current hvigor version 6.20.0 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2025-12-04T14:28:39.848] [DEBUG] debug-file - hvigorfile, binding system plugins { appTasks: [Getter] }
+[2025-12-04T14:28:40.261] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-12-04T14:28:40.280] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-12-04T14:28:40.484] [DEBUG] debug-file - Sdk init in 200 ms 
+[2025-12-04T14:28:40.521] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:28:40.623] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-12-04T14:28:40.601] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:27:42.657] [DEBUG] debug-file - env: daemon=false
+[2025-12-04T14:28:40.654] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-12-04T14:28:40.673] [DEBUG] debug-file - runTaskFromQueue task cost before running: 49 s 476 ms 
+[2025-12-04T14:28:40.743] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-12-04T14:27:51.226] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2025-12-04T14:28:40.262] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-12-04T14:28:40.289] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-12-04T14:28:40.525] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:28:40.633] [DEBUG] debug-file - load to the disk finished
+[2025-12-04T14:28:40.603] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:27:42.657] [DEBUG] debug-file - no-daemon, use the parent process.execArgv --max-old-space-size=8192,--max-semi-space-size=16,--expose-gc
+[2025-12-04T14:28:40.654] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-12-04T14:28:40.676] [INFO] debug-file - Finished :entry:clean... after 5 ms 
+[2025-12-04T14:28:40.748] [DEBUG] debug-file - Current worker pool is stopped or closed.
+[2025-12-04T14:27:51.228] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:28:40.262] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-12-04T14:28:40.300] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-12-04T14:28:40.560] [DEBUG] debug-file - hvigorfile, require result:  { hapTasks: [Getter] }
+[2025-12-04T14:28:40.635] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:28:40.603] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:28:40.662] [DEBUG] debug-file - Configuration phase cost:49 s 436 ms 
+[2025-12-04T14:28:40.677] [DEBUG] debug-file - Executing task ::clean
+[2025-12-04T14:28:40.749] [DEBUG] debug-file - Clear worker 0.
+[2025-12-04T14:28:40.561] [DEBUG] debug-file - hvigorfile, binding system plugins { hapTasks: [Getter] }
+[2025-12-04T14:28:40.642] [DEBUG] debug-file - Module WaterFlow Collected Dependency: 
+[2025-12-04T14:28:40.603] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:28:40.667] [DEBUG] debug-file - Configuration task cost before running: 49 s 469 ms 
+[2025-12-04T14:28:40.677] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Worker 0 has been cleared.
+[2025-12-04T14:28:40.564] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\cli\main\cli.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\bin\hvigor.js
+[2025-12-04T14:28:40.642] [DEBUG] debug-file - Module WaterFlow's total dependency: 0
+[2025-12-04T14:28:40.603] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-12-04T14:28:40.669] [DEBUG] debug-file - Executing task :entry:clean
+[2025-12-04T14:28:40.678] [DEBUG] debug-file - WaterFlow : clean cost memory 0.01998138427734375
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Current busy worker size: 0.
+[2025-12-04T14:28:40.669] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-12-04T14:28:40.678] [DEBUG] debug-file - runTaskFromQueue task cost before running: 49 s 480 ms 
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Clear worker 1.
+[2025-12-04T14:28:40.679] [INFO] debug-file - Finished ::clean... after 1 ms 
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Worker 1 has been cleared.
+[2025-12-04T14:28:40.679] [DEBUG] debug-file - Executing task :entry:init
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-12-04T14:28:40.680] [DEBUG] debug-file - entry : init cost memory 0.0126953125
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:28:40.750] [DEBUG] debug-file - Current busy worker size: 0.
+[2025-12-04T14:28:40.680] [DEBUG] debug-file - runTaskFromQueue task cost before running: 49 s 482 ms 
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:28:40.757] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-12-04T14:28:40.680] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2025-12-04T14:28:40.604] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:28:40.769] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-12-04T14:28:40.681] [DEBUG] debug-file - Executing task ::init
+[2025-12-04T14:28:40.605] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-04T14:28:40.771] [DEBUG] debug-file - Current worker pool is terminated.
+[2025-12-04T14:28:40.616] [DEBUG] debug-file - Module entry task initialization takes 9 ms 
+[2025-12-04T14:28:40.681] [DEBUG] debug-file - WaterFlow : init cost memory 0.01149749755859375
+[2025-12-04T14:28:40.616] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:28:40.775] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-12-04T14:28:40.681] [DEBUG] debug-file - runTaskFromQueue task cost before running: 49 s 483 ms 
+[2025-12-04T14:28:40.681] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-12-04T14:28:40.705] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-04T14:28:40.729] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-12-04T14:28:40.729] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-12-04T14:31:42.086] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-12-04T14:31:42.387] [DEBUG] debug-file - env: daemon=true
+[2025-12-04T14:31:42.087] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.0.0', dependencies: {} }
+[2025-12-04T14:31:45.495] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2025-12-04T14:31:45.970] [DEBUG] debug-file - java daemon started at port 45050 pid 30896
+[2025-12-04T14:31:46.005] [DEBUG] debug-file - session manager: set active socket. socketId=lzm8IwGNJjS0ZtEXAAAB
+[2025-12-04T14:31:46.118] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-04T14:31:46.124] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-12-04T14:31:46.125] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2025-12-04T14:31:46.127] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:31:48.095] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-04T14:31:48.095] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-04T14:31:48.238] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-12-04T14:31:48.238] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-12-04T14:31:48.239] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-12-04T14:31:48.239] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-12-04T14:31:48.240] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-12-04T14:31:48.241] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-12-04T14:31:48.243] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-12-04T14:31:48.246] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-12-04T14:31:48.247] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-12-04T14:31:48.275] [DEBUG] debug-file - Sdk init in 33 ms 
+[2025-12-04T14:31:48.279] [DEBUG] debug-file - Project task initialization takes 4 ms 
+[2025-12-04T14:31:48.279] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:31:48.280] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:31:48.284] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-04T14:31:48.285] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-04T14:31:48.286] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:31:48.296] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.297] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-04T14:31:48.301] [DEBUG] debug-file - Module entry task initialization takes 4 ms 
+[2025-12-04T14:31:48.301] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:31:48.316] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 15 ms 
+[2025-12-04T14:31:48.316] [DEBUG] debug-file - project has submodules:entry
+[2025-12-04T14:31:48.317] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-12-04T14:31:48.325] [DEBUG] debug-file - load to the disk finished
+[2025-12-04T14:31:48.326] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:31:48.330] [DEBUG] debug-file - Module WaterFlow Collected Dependency: 
+[2025-12-04T14:31:48.330] [DEBUG] debug-file - Module WaterFlow's total dependency: 0
+[2025-12-04T14:31:48.331] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:31:48.334] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-12-04T14:31:48.334] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-12-04T14:31:48.337] [DEBUG] debug-file - Configuration phase cost:2 s 212 ms 
+[2025-12-04T14:31:48.339] [DEBUG] debug-file - Configuration task cost before running: 2 s 219 ms 
+[2025-12-04T14:31:48.339] [DEBUG] debug-file - Executing task :entry:init
+[2025-12-04T14:31:48.339] [DEBUG] debug-file - entry : init cost memory 0.01801300048828125
+[2025-12-04T14:31:48.339] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 220 ms 
+[2025-12-04T14:31:48.340] [INFO] debug-file - Finished :entry:init... after 1 ms 
+[2025-12-04T14:31:48.340] [DEBUG] debug-file - Executing task ::init
+[2025-12-04T14:31:48.340] [DEBUG] debug-file - WaterFlow : init cost memory 0.015350341796875
+[2025-12-04T14:31:48.340] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 220 ms 
+[2025-12-04T14:31:48.340] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-12-04T14:31:48.349] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-04T14:31:48.353] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-04T14:31:48.353] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-04T14:31:48.355] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-12-04T14:31:48.355] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-12-04T14:31:48.355] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-12-04T14:31:48.359] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Cleanup worker 0.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Cleanup worker 1.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-12-04T14:31:48.360] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-12-04T14:31:48.361] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-12-04T14:31:48.365] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-04T14:31:48.366] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-04T14:31:48.368] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-12-04T14:31:48.372] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-12-04T14:31:48.673] [DEBUG] debug-file - session manager: set active socket. socketId=ZjsbPGXPlDQB3oXLAAAD
+[2025-12-04T14:31:48.762] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-04T14:31:48.767] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-12-04T14:31:48.767] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2025-12-04T14:31:48.768] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:31:48.772] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-04T14:31:48.772] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-04T14:31:48.777] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-12-04T14:31:48.778] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-12-04T14:31:48.778] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-12-04T14:31:48.778] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-12-04T14:31:48.779] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-12-04T14:31:48.780] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-12-04T14:31:48.787] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-12-04T14:31:48.814] [DEBUG] debug-file - Sdk init in 33 ms 
+[2025-12-04T14:31:48.816] [DEBUG] debug-file - Project task initialization takes 3 ms 
+[2025-12-04T14:31:48.816] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-04T14:31:48.816] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:31:48.820] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-04T14:31:48.820] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-04T14:31:48.820] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-04T14:31:48.822] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-04T14:31:48.823] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-04T14:31:48.823] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-04T14:31:48.823] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-04T14:31:48.823] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2025-12-04T14:31:48.823] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-04T14:31:48.840] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 17 ms 
+[2025-12-04T14:31:48.840] [DEBUG] debug-file - project has submodules:entry
+[2025-12-04T14:31:48.841] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-12-04T14:31:48.848] [DEBUG] debug-file - load to the disk finished
+[2025-12-04T14:31:48.850] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:31:48.851] [DEBUG] debug-file - Module WaterFlow Collected Dependency: 
+[2025-12-04T14:31:48.851] [DEBUG] debug-file - Module WaterFlow's total dependency: 0
+[2025-12-04T14:31:48.851] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-04T14:31:48.854] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-12-04T14:31:48.854] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-12-04T14:31:48.856] [DEBUG] debug-file - Configuration phase cost:89 ms 
+[2025-12-04T14:31:48.858] [DEBUG] debug-file - Configuration task cost before running: 94 ms 
+[2025-12-04T14:31:48.867] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2025-12-04T14:31:48.868] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.134] [DEBUG] debug-file - current product is not Atomic service.
+[2025-12-04T14:31:49.134] [DEBUG] debug-file - Use tool [win32: JAVA_HOME, CLASSPATH]
+ [
+  { JAVA_HOME: 'D:\\OpenHarmony\\DevEco Studio\\jbr' },
+  {
+    CLASSPATH: '.;E:\\Codedevelop\\JDK\\lib\\tools.jar;E:\\Codedevelop\\JDK\\lib\\dt.jar;'
+  }
+]
+[2025-12-04T14:31:49.134] [DEBUG] debug-file - Use tool [win32: NODE_HOME]
+ [ { NODE_HOME: 'D:\\OpenHarmony\\DevEco Studio\\tools\\node' } ]
+[2025-12-04T14:31:49.135] [DEBUG] debug-file - entry : default@PreBuild cost memory 4.7364044189453125
+[2025-12-04T14:31:49.135] [DEBUG] debug-file - runTaskFromQueue task cost before running: 371 ms 
+[2025-12-04T14:31:49.139] [INFO] debug-file - Finished :entry:default@PreBuild... after 269 ms 
+[2025-12-04T14:31:49.141] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2025-12-04T14:31:49.142] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.142] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.2714996337890625
+[2025-12-04T14:31:49.142] [DEBUG] debug-file - runTaskFromQueue task cost before running: 379 ms 
+[2025-12-04T14:31:49.143] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 2 ms 
+[2025-12-04T14:31:49.144] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2025-12-04T14:31:49.145] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.146] [DEBUG] debug-file - Change app api release type with 'Release'
+[2025-12-04T14:31:49.146] [DEBUG] debug-file - Change app compile API version with '6.0.0.47'
+[2025-12-04T14:31:49.146] [DEBUG] debug-file - Change app target API version with '60000020'
+[2025-12-04T14:31:49.146] [DEBUG] debug-file - Change app minimum API version with '50005017'
+[2025-12-04T14:31:49.146] [DEBUG] debug-file - Use cli appEnvironment
+[2025-12-04T14:31:49.150] [DEBUG] debug-file - entry : default@MergeProfile cost memory 0.1569671630859375
+[2025-12-04T14:31:49.150] [DEBUG] debug-file - runTaskFromQueue task cost before running: 386 ms 
+[2025-12-04T14:31:49.150] [INFO] debug-file - Finished :entry:default@MergeProfile... after 6 ms 
+[2025-12-04T14:31:49.152] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2025-12-04T14:31:49.153] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.154] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.0655670166015625
+[2025-12-04T14:31:49.154] [DEBUG] debug-file - runTaskFromQueue task cost before running: 391 ms 
+[2025-12-04T14:31:49.155] [INFO] debug-file - Finished :entry:default@CreateBuildProfile... after 3 ms 
+[2025-12-04T14:31:49.156] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2025-12-04T14:31:49.156] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01639556884765625
+[2025-12-04T14:31:49.156] [DEBUG] debug-file - runTaskFromQueue task cost before running: 392 ms 
+[2025-12-04T14:31:49.156] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2025-12-04T14:31:49.158] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2025-12-04T14:31:49.168] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.168] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.29235076904296875
+[2025-12-04T14:31:49.168] [DEBUG] debug-file - runTaskFromQueue task cost before running: 405 ms 
+[2025-12-04T14:31:49.168] [INFO] debug-file - Finished :entry:default@GeneratePkgContextInfo... after 11 ms 
+[2025-12-04T14:31:49.170] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2025-12-04T14:31:49.171] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.172] [DEBUG] debug-file - [
+  'D:\\OpenHarmony\\DevEco Studio\\tools\\node\\node.exe',
+  'D:\\OpenHarmony\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\bin\\ark\\ts2abc.js',
+  '--target-api-version',
+  '17'
+]
+[2025-12-04T14:31:49.944] [DEBUG] debug-file - 12.0.6.0
+[2025-12-04T14:31:49.946] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 2.1366500854492188
+[2025-12-04T14:31:49.946] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 182 ms 
+[2025-12-04T14:31:49.946] [INFO] debug-file - Finished :entry:default@ProcessProfile... after 777 ms 
+[2025-12-04T14:31:49.947] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2025-12-04T14:31:49.950] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.077301025390625
+[2025-12-04T14:31:49.950] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 186 ms 
+[2025-12-04T14:31:49.950] [INFO] debug-file - Finished :entry:default@ProcessRouterMap... after 3 ms 
+[2025-12-04T14:31:49.951] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2025-12-04T14:31:49.953] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.06345367431640625
+[2025-12-04T14:31:49.953] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 190 ms 
+[2025-12-04T14:31:49.954] [INFO] debug-file - Finished :entry:default@ProcessShareConfig... after 2 ms 
+[2025-12-04T14:31:49.955] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2025-12-04T14:31:49.955] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.956] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.0617523193359375
+[2025-12-04T14:31:49.956] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 192 ms 
+[2025-12-04T14:31:49.956] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 1 ms 
+[2025-12-04T14:31:49.957] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@PreviewProcessResource
+[2025-12-04T14:31:49.958] [DEBUG] debug-file - Executing task :entry:default@PreviewProcessResource
+[2025-12-04T14:31:49.958] [DEBUG] debug-file - Task 'entry:default@PreviewProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.958] [DEBUG] debug-file - entry : default@PreviewProcessResource cost memory 0.056365966796875
+[2025-12-04T14:31:49.959] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 195 ms 
+[2025-12-04T14:31:49.959] [INFO] debug-file - Finished :entry:default@PreviewProcessResource... after 2 ms 
+[2025-12-04T14:31:49.961] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2025-12-04T14:31:49.963] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-12-04T14:31:49.971] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.5718841552734375
+[2025-12-04T14:31:49.971] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 s 208 ms 
+[2025-12-04T14:31:49.974] [INFO] debug-file - Finished :entry:default@GenerateLoaderJson... after 11 ms 
+[2025-12-04T14:31:49.975] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@PreviewCompileResource
+[2025-12-04T14:31:49.976] [DEBUG] debug-file - Executing task :entry:default@PreviewCompileResource
+[2025-12-04T14:31:49.982] [DEBUG] debug-file - Use tool [D:\OpenHarmony\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\OpenHarmony\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-x',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\AppScope\\resources',
+  '-o',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default\\app_compiled'
+]
+[2025-12-04T14:31:49.982] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 221315072,
+  heapTotal: 170225664,
+  heapUsed: 136157600,
+  external: 3212796,
+  arrayBuffers: 102881
+} os memoryUsage :14.598339080810547
+[2025-12-04T14:31:50.474] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-12-04T14:31:50.477] [DEBUG] debug-file - Use tool [D:\OpenHarmony\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\OpenHarmony\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-x',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\src\\main\\resources',
+  '-o',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default\\module_compiled'
+]
+[2025-12-04T14:31:50.477] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 221396992,
+  heapTotal: 170225664,
+  heapUsed: 136317112,
+  external: 3135212,
+  arrayBuffers: 103022
+} os memoryUsage :14.597358703613281
+[2025-12-04T14:31:50.583] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-12-04T14:31:50.595] [DEBUG] debug-file - Use tool [D:\OpenHarmony\DevEco Studio\sdk\default\openharmony\toolchains\restool.exe]
+ [
+  'D:\\OpenHarmony\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\restool.exe',
+  '-m',
+  'entry',
+  '-f',
+  '-j',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\process_profile\\default\\module.json',
+  '-p',
+  'c***w',
+  '-r',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\generated\\r\\default\\ResourceTable.h',
+  '-z',
+  '--ids',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default\\ids_map',
+  '-i',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default\\app_compiled',
+  '-i',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default\\module_compiled',
+  '-o',
+  'D:\\OpenHarmony\\DevEcoProject\\WaterFlow\\entry\\.preview\\default\\intermediates\\res\\default',
+  '--defined-sysids',
+  'D:\\OpenHarmony\\DevEco Studio\\sdk\\default\\hms\\toolchains\\id_defined.json'
+]
+[2025-12-04T14:31:50.596] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 221437952,
+  heapTotal: 170225664,
+  heapUsed: 136494720,
+  external: 3135338,
+  arrayBuffers: 104023
+} os memoryUsage :14.594715118408203
+[2025-12-04T14:31:50.751] [DEBUG] debug-file - Info: hardware concurrency count is : 32
+Info: thread count is : 32
+
+[2025-12-04T14:31:50.751] [DEBUG] debug-file - Info: thread pool is started
+
+[2025-12-04T14:31:50.758] [DEBUG] debug-file - Info: restool resources compile success.
+
+[2025-12-04T14:31:50.758] [DEBUG] debug-file - Info: thread pool is stopped
+
+[2025-12-04T14:31:50.764] [DEBUG] debug-file - entry : default@PreviewCompileResource cost memory -9.408828735351562
+[2025-12-04T14:31:50.764] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 
+[2025-12-04T14:31:50.765] [INFO] debug-file - Finished :entry:default@PreviewCompileResource... after 789 ms 
+[2025-12-04T14:31:50.765] [DEBUG] debug-file - Executing task :entry:default@PreviewHookCompileResource
+[2025-12-04T14:31:50.766] [DEBUG] debug-file - entry : default@PreviewHookCompileResource cost memory 0.01810455322265625
+[2025-12-04T14:31:50.766] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 2 ms 
+[2025-12-04T14:31:50.766] [INFO] debug-file - Finished :entry:default@PreviewHookCompileResource... after 1 ms 
+[2025-12-04T14:31:50.766] [DEBUG] debug-file - Executing task :entry:default@CopyPreviewProfile
+[2025-12-04T14:31:50.771] [DEBUG] debug-file - entry : default@CopyPreviewProfile cost memory 0.12610626220703125
+[2025-12-04T14:31:50.772] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 8 ms 
+[2025-12-04T14:31:50.772] [INFO] debug-file - Finished :entry:default@CopyPreviewProfile... after 6 ms 
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - Executing task :entry:default@ReplacePreviewerPage
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - entry : default@ReplacePreviewerPage cost memory 0.017974853515625
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 9 ms 
+[2025-12-04T14:31:50.773] [INFO] debug-file - Finished :entry:default@ReplacePreviewerPage... after 1 ms 
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - Executing task :entry:buildPreviewerResource
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - entry : buildPreviewerResource cost memory 0.0145263671875
+[2025-12-04T14:31:50.773] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 10 ms 
+[2025-12-04T14:31:50.773] [INFO] debug-file - Finished :entry:buildPreviewerResource... after 1 ms 
+[2025-12-04T14:31:50.774] [DEBUG] debug-file - Executing task :entry:default@PreviewUpdateAssets
+[2025-12-04T14:31:50.776] [DEBUG] debug-file - entry : default@PreviewUpdateAssets cost memory 0.30889129638671875
+[2025-12-04T14:31:50.777] [DEBUG] debug-file - runTaskFromQueue task cost before running: 2 s 13 ms 
+[2025-12-04T14:31:50.777] [INFO] debug-file - Finished :entry:default@PreviewUpdateAssets... after 3 ms 
+[2025-12-04T14:31:50.778] [DEBUG] debug-file - Executing task :entry:default@PreviewArkTS
+[2025-12-04T14:31:50.779] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-12-04T14:31:50.794] [DEBUG] debug-file - session manager: binding session. socketId=ZjsbPGXPlDQB3oXLAAAD, threadId=1@1.
+[2025-12-04T14:31:50.796] [DEBUG] debug-file - entry : default@PreviewArkTS cost memory 1.49755859375
+[2025-12-04T14:32:21.228] [DEBUG] debug-file - watch worker: send response to session manager. Response type: WatchStart
+[2025-12-04T14:32:21.228] [DEBUG] debug-file - session manager: watch message received from worker 1. Type: WatchStart
+[2025-12-04T14:32:29.959] [DEBUG] debug-file - watch worker: send response to session manager. Response type: WatchResult
+[2025-12-04T14:32:29.959] [DEBUG] debug-file - session manager: watch message received from worker 1. Type: WatchResult
+[2025-12-04T14:32:29.960] [DEBUG] debug-file - Ark compile finished.
+[2025-12-04T14:32:29.963] [INFO] debug-file - Finished :entry:default@PreviewArkTS... after 39 s 183 ms 
+[2025-12-04T14:32:29.964] [DEBUG] debug-file - Executing task :entry:PreviewBuild
+[2025-12-04T14:32:29.964] [DEBUG] debug-file - entry : PreviewBuild cost memory 0.01427459716796875
+[2025-12-04T14:32:29.964] [DEBUG] debug-file - runTaskFromQueue task cost before running: 41 s 200 ms 
+[2025-12-04T14:32:29.964] [INFO] debug-file - Finished :entry:PreviewBuild... after 1 ms 
+[2025-12-04T14:32:29.974] [INFO] debug-file - BUILD SUCCESSFUL in 41 s 210 ms 
+[2025-12-04T14:32:29.975] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\AppScope\app.json5 cache by regenerate.
+[2025-12-04T14:32:29.976] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\module.json5 cache by regenerate.
+[2025-12-04T14:32:29.976] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\build-profile.json5 cache by regenerate.
+[2025-12-04T14:32:29.976] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\build-profile.json5 cache by regenerate.
+[2025-12-04T14:32:29.977] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\resources\base\profile\main_pages.json cache by regenerate.
+[2025-12-04T14:32:29.977] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\hvigor\hvigor-config.json5 cache by regenerate.
+[2025-12-04T14:32:29.977] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.977] [DEBUG] debug-file - Update task entry:default@PreBuild input file:D:\OpenHarmony\DevEcoProject\WaterFlow\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.978] [DEBUG] debug-file - Incremental task entry:default@PreBuild post-execution cost:4 ms .
+[2025-12-04T14:32:29.978] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\profile\default\ModuleInfo.ts cache.
+[2025-12-04T14:32:29.978] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2025-12-04T14:32:29.978] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\AppScope\app.json5 cache by regenerate.
+[2025-12-04T14:32:29.979] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\build-profile.json5 cache by regenerate.
+[2025-12-04T14:32:29.979] [DEBUG] debug-file - Update task entry:default@MergeProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\module.json5 cache by regenerate.
+[2025-12-04T14:32:29.979] [DEBUG] debug-file - Update task entry:default@MergeProfile output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\merge_profile\default\module.json cache.
+[2025-12-04T14:32:29.979] [DEBUG] debug-file - Incremental task entry:default@MergeProfile post-execution cost:2 ms .
+[2025-12-04T14:32:29.979] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\AppScope\app.json5 cache by regenerate.
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\build-profile.json5 cache by regenerate.
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Update task entry:default@CreateBuildProfile output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\profile\default\BuildProfile.ets cache.
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile post-execution cost:1 ms .
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Update task entry:default@GeneratePkgContextInfo output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader\default\pkgContextInfo.json cache.
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2025-12-04T14:32:29.980] [DEBUG] debug-file - Update task entry:default@ProcessProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\merge_profile\default\module.json cache by regenerate.
+[2025-12-04T14:32:29.981] [DEBUG] debug-file - Update task entry:default@ProcessProfile output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\process_profile\default\module.json cache.
+[2025-12-04T14:32:29.981] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile post-execution cost:1 ms .
+[2025-12-04T14:32:29.981] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.982] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\OpenHarmony\DevEcoProject\WaterFlow\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.982] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\module.json5 cache by regenerate.
+[2025-12-04T14:32:29.982] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\router_map\default\temp-router-map.json cache.
+[2025-12-04T14:32:29.982] [DEBUG] debug-file - Update task entry:default@ProcessRouterMap output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\router_map\default\loader-router-map.json cache.
+[2025-12-04T14:32:29.982] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap post-execution cost:2 ms .
+[2025-12-04T14:32:29.983] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.983] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\OpenHarmony\DevEcoProject\WaterFlow\oh-package.json5 cache by regenerate.
+[2025-12-04T14:32:29.983] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\module.json5 cache by regenerate.
+[2025-12-04T14:32:29.983] [DEBUG] debug-file - Update task entry:default@ProcessShareConfig output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\share_config\default\temp-share-config.json cache.
+[2025-12-04T14:32:29.984] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig post-execution cost:2 ms .
+[2025-12-04T14:32:29.984] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\startup\default\startup_config.json cache.
+[2025-12-04T14:32:29.984] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-12-04T14:32:29.985] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\router_map\default\temp-router-map.json cache by regenerate.
+[2025-12-04T14:32:29.985] [DEBUG] debug-file - Update task entry:default@GenerateLoaderJson output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader\default\loader.json cache.
+[2025-12-04T14:32:29.985] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson post-execution cost:2 ms .
+[2025-12-04T14:32:29.985] [DEBUG] debug-file - Update task entry:default@PreviewCompileResource input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\resources cache by regenerate.
+[2025-12-04T14:32:29.990] [DEBUG] debug-file - Update task entry:default@PreviewCompileResource input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\merge_profile\default\module.json cache by regenerate.
+[2025-12-04T14:32:29.990] [DEBUG] debug-file - Update task entry:default@PreviewCompileResource output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default cache.
+[2025-12-04T14:32:30.000] [DEBUG] debug-file - Update task entry:default@PreviewCompileResource output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\r\default cache.
+[2025-12-04T14:32:30.001] [DEBUG] debug-file - Incremental task entry:default@PreviewCompileResource post-execution cost:16 ms .
+[2025-12-04T14:32:30.001] [DEBUG] debug-file - Update task entry:default@CopyPreviewProfile input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\resources\base\profile cache by regenerate.
+[2025-12-04T14:32:30.002] [DEBUG] debug-file - Update task entry:default@CopyPreviewProfile output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\resources\base\profile cache.
+[2025-12-04T14:32:30.002] [DEBUG] debug-file - Incremental task entry:default@CopyPreviewProfile post-execution cost:1 ms .
+[2025-12-04T14:32:30.003] [DEBUG] debug-file - Update task entry:default@PreviewUpdateAssets output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\module.json cache.
+[2025-12-04T14:32:30.003] [DEBUG] debug-file - Update task entry:default@PreviewUpdateAssets output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\resources\base\profile\main_pages.json cache.
+[2025-12-04T14:32:30.003] [DEBUG] debug-file - Incremental task entry:default@PreviewUpdateAssets post-execution cost:1 ms .
+[2025-12-04T14:32:30.004] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader\default cache by regenerate.
+[2025-12-04T14:32:30.005] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-12-04T14:32:30.005] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2025-12-04T14:32:30.005] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-12-04T14:32:30.005] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\ets cache by regenerate.
+[2025-12-04T14:32:30.008] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-12-04T14:32:30.008] [DEBUG] debug-file - Update task entry:default@PreviewArkTS output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader_out\default\ets cache.
+[2025-12-04T14:32:30.008] [DEBUG] debug-file - Incremental task entry:default@PreviewArkTS post-execution cost:5 ms .
+[2025-12-04T14:32:30.026] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2025-12-04T14:32:30.027] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-12-04T14:33:05.264] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-04T14:33:05.264] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-04T14:33:05.295] [DEBUG] debug-file - bad codeSnippet [object Object]
+[2025-12-04T14:33:05.311] [DEBUG] debug-file - watch worker: worker is ready to be terminated.
+[2025-12-04T14:33:05.311] [DEBUG] debug-file - Server currently has 0 watch-worker
+[2025-12-18T15:55:41.397] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED 127.0.0.1:45050
+[2025-12-18T15:55:43.171] [DEBUG] debug-file - java daemon started at port 45050 pid 1648
+[2025-12-18T15:55:35.009] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-12-18T15:55:35.424] [DEBUG] debug-file - env: daemon=true
+[2025-12-18T15:55:35.009] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.0.0', dependencies: {} }
+[2025-12-18T15:55:49.417] [DEBUG] debug-file - session manager: set active socket. socketId=AY_vM61hNtTDTU10AAAB
+[2025-12-18T15:55:49.456] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-18T15:55:49.489] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-12-18T15:55:49.562] [DEBUG] debug-file - Cache service initialization finished in 72 ms 
+[2025-12-18T15:55:49.570] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-18T15:56:58.870] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-18T15:56:58.872] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-18T15:56:59.702] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-12-18T15:56:59.703] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-12-18T15:56:59.705] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-12-18T15:56:59.705] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-12-18T15:56:59.713] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-12-18T15:56:59.735] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-12-18T15:56:59.756] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-12-18T15:56:59.796] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-12-18T15:56:59.809] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-12-18T15:56:59.956] [DEBUG] debug-file - Sdk init in 206 ms 
+[2025-12-18T15:56:59.986] [DEBUG] debug-file - Project task initialization takes 26 ms 
+[2025-12-18T15:56:59.986] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-18T15:56:59.989] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-18T15:57:00.014] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-18T15:57:00.015] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-18T15:57:00.021] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-12-18T15:57:00.065] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-12-18T15:57:00.067] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:57:00.068] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:57:00.069] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:57:00.069] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-18T15:57:00.069] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:57:00.071] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:57:00.071] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:57:00.071] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-18T15:57:00.072] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:57:00.072] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:57:00.072] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:57:00.073] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-18T15:57:00.098] [DEBUG] debug-file - Module entry task initialization takes 21 ms 
+[2025-12-18T15:57:00.099] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-18T15:57:00.192] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 89 ms 
+[2025-12-18T15:57:00.193] [DEBUG] debug-file - project has submodules:entry
+[2025-12-18T15:57:00.206] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-12-18T15:57:00.231] [DEBUG] debug-file - load to the disk finished
+[2025-12-18T15:57:00.236] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-18T15:57:00.248] [DEBUG] debug-file - Module WaterFlow Collected Dependency: 
+[2025-12-18T15:57:00.248] [DEBUG] debug-file - Module WaterFlow's total dependency: 0
+[2025-12-18T15:57:00.254] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-18T15:57:00.269] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-12-18T15:57:00.269] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-12-18T15:57:00.285] [DEBUG] debug-file - Configuration phase cost:1 min 10 s 722 ms 
+[2025-12-18T15:57:00.294] [DEBUG] debug-file - Configuration task cost before running: 1 min 10 s 828 ms 
+[2025-12-18T15:57:00.296] [DEBUG] debug-file - Executing task :entry:init
+[2025-12-18T15:57:00.298] [DEBUG] debug-file - entry : init cost memory 0.01801300048828125
+[2025-12-18T15:57:00.299] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 10 s 833 ms 
+[2025-12-18T15:57:00.300] [INFO] debug-file - Finished :entry:init... after 3 ms 
+[2025-12-18T15:57:00.301] [DEBUG] debug-file - Executing task ::init
+[2025-12-18T15:57:00.302] [DEBUG] debug-file - WaterFlow : init cost memory 0.015350341796875
+[2025-12-18T15:57:00.302] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 10 s 836 ms 
+[2025-12-18T15:57:00.303] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-12-18T15:57:00.335] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-18T15:57:00.350] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-12-18T15:57:00.351] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-12-18T15:57:00.353] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-12-18T15:57:00.364] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-12-18T15:57:00.372] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-18T15:57:00.373] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-18T15:57:00.373] [DEBUG] debug-file - Cleanup worker 0.
+[2025-12-18T15:57:00.374] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-12-18T15:57:00.375] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-12-18T15:57:00.375] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-12-18T15:57:00.375] [DEBUG] debug-file - Cleanup worker 1.
+[2025-12-18T15:57:00.375] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-12-18T15:57:00.376] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-12-18T15:57:00.376] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-12-18T15:57:00.379] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-12-18T15:57:00.392] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-18T15:57:00.392] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-18T15:57:00.395] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-12-18T15:57:00.396] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-12-18T15:58:06.736] [DEBUG] debug-file - session manager: set active socket. socketId=1TrXZddHLFdA9cQ_AAAD
+[2025-12-18T15:58:06.739] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-12-18T15:58:06.745] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined
+}
+[2025-12-18T15:58:06.747] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2025-12-18T15:58:06.748] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-18T15:58:06.752] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-18T15:58:06.752] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-18T15:58:06.757] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-12-18T15:58:06.757] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-12-18T15:58:06.757] [DEBUG] debug-file - Product 'default' build option initialized
+[2025-12-18T15:58:06.757] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-12-18T15:58:06.758] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2025-12-18T15:58:06.758] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-12-18T15:58:06.762] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-12-18T15:58:06.786] [DEBUG] debug-file - Sdk init in 28 ms 
+[2025-12-18T15:58:06.790] [DEBUG] debug-file - Project task initialization takes 3 ms 
+[2025-12-18T15:58:06.790] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+[2025-12-18T15:58:06.790] [DEBUG] debug-file - hvigorfile, resolving D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-18T15:58:06.794] [DEBUG] debug-file - hvigorfile, require result:  {}
+[2025-12-18T15:58:06.794] [DEBUG] debug-file - hvigorfile, binding system plugins {}
+[2025-12-18T15:58:06.795] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\src\plugin\factory\plugin-factory.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor-ohos-plugin\index.js
+- D:\OpenHarmony\DevEcoProject\WaterFlow\hvigorfile.ts
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\internal\lifecycle\configuration.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\boot\index.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\cluster\worker-process-lifecycle.js
+- D:\OpenHarmony\DevEco Studio\tools\hvigor\hvigor\src\base\daemon\process\daemon-process-boot-script.js
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:58:06.797] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2025-12-18T15:58:06.798] [DEBUG] debug-file - Target 'default' config initialized
+[2025-12-18T15:58:06.798] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2025-12-18T15:58:06.798] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2025-12-18T15:58:06.798] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2025-12-18T15:58:06.799] [DEBUG] debug-file - Module entry task initialization takes 1 ms 
+[2025-12-18T15:58:06.799] [DEBUG] debug-file - hvigorfile, resolve finished D:\OpenHarmony\DevEcoProject\WaterFlow\entry\hvigorfile.ts
+[2025-12-18T15:58:06.819] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 20 ms 
+[2025-12-18T15:58:06.819] [DEBUG] debug-file - project has submodules:entry
+[2025-12-18T15:58:06.820] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-12-18T15:58:06.824] [DEBUG] debug-file - load to the disk finished
+[2025-12-18T15:58:06.824] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-18T15:58:06.825] [DEBUG] debug-file - Module WaterFlow Collected Dependency: 
+[2025-12-18T15:58:06.825] [DEBUG] debug-file - Module WaterFlow's total dependency: 0
+[2025-12-18T15:58:06.826] [DEBUG] debug-file - Start to initialize dependency information.
+[2025-12-18T15:58:06.828] [DEBUG] debug-file - Module entry Collected Dependency: 
+[2025-12-18T15:58:06.828] [DEBUG] debug-file - Module entry's total dependency: 0
+[2025-12-18T15:58:06.829] [DEBUG] debug-file - Configuration phase cost:83 ms 
+[2025-12-18T15:58:06.830] [DEBUG] debug-file - Configuration task cost before running: 88 ms 
+[2025-12-18T15:58:06.836] [DEBUG] debug-file - Executing task :entry:default@PreBuild
+[2025-12-18T15:58:06.837] [DEBUG] debug-file - Task 'entry:default@PreBuild' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.846] [DEBUG] debug-file - Incremental task entry:default@PreBuild pre-execution cost: 7 ms .
+[2025-12-18T15:58:06.846] [DEBUG] debug-file - entry : default@PreBuild cost memory 0.39786529541015625
+[2025-12-18T15:58:06.848] [INFO] debug-file - UP-TO-DATE :entry:default@PreBuild...  
+[2025-12-18T15:58:06.849] [DEBUG] debug-file - Executing task :entry:default@CreateModuleInfo
+[2025-12-18T15:58:06.849] [DEBUG] debug-file - Task 'entry:default@CreateModuleInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.850] [DEBUG] debug-file - entry : default@CreateModuleInfo cost memory 0.0500030517578125
+[2025-12-18T15:58:06.850] [DEBUG] debug-file - runTaskFromQueue task cost before running: 108 ms 
+[2025-12-18T15:58:06.850] [INFO] debug-file - Finished :entry:default@CreateModuleInfo... after 1 ms 
+[2025-12-18T15:58:06.851] [DEBUG] debug-file - Executing task :entry:default@MergeProfile
+[2025-12-18T15:58:06.851] [DEBUG] debug-file - Task 'entry:default@MergeProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.853] [DEBUG] debug-file - Incremental task entry:default@MergeProfile pre-execution cost: 2 ms .
+[2025-12-18T15:58:06.854] [DEBUG] debug-file - entry : default@MergeProfile cost memory -1.3208236694335938
+[2025-12-18T15:58:06.854] [INFO] debug-file - UP-TO-DATE :entry:default@MergeProfile...  
+[2025-12-18T15:58:06.855] [DEBUG] debug-file - Executing task :entry:default@CreateBuildProfile
+[2025-12-18T15:58:06.855] [DEBUG] debug-file - Task 'entry:default@CreateBuildProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.856] [DEBUG] debug-file - Incremental task entry:default@CreateBuildProfile pre-execution cost: 1 ms .
+[2025-12-18T15:58:06.856] [DEBUG] debug-file - entry : default@CreateBuildProfile cost memory 0.09786224365234375
+[2025-12-18T15:58:06.857] [INFO] debug-file - UP-TO-DATE :entry:default@CreateBuildProfile...  
+[2025-12-18T15:58:06.857] [DEBUG] debug-file - Executing task :entry:default@PreCheckSyscap
+[2025-12-18T15:58:06.858] [DEBUG] debug-file - entry : default@PreCheckSyscap cost memory 0.01639556884765625
+[2025-12-18T15:58:06.858] [DEBUG] debug-file - runTaskFromQueue task cost before running: 116 ms 
+[2025-12-18T15:58:06.858] [INFO] debug-file - Finished :entry:default@PreCheckSyscap... after 1 ms 
+[2025-12-18T15:58:06.859] [DEBUG] debug-file - Executing task :entry:default@GeneratePkgContextInfo
+[2025-12-18T15:58:06.867] [DEBUG] debug-file - Task 'entry:default@GeneratePkgContextInfo' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.868] [DEBUG] debug-file - entry : default@GeneratePkgContextInfo cost memory 0.313873291015625
+[2025-12-18T15:58:06.868] [DEBUG] debug-file - runTaskFromQueue task cost before running: 126 ms 
+[2025-12-18T15:58:06.868] [INFO] debug-file - Finished :entry:default@GeneratePkgContextInfo... after 9 ms 
+[2025-12-18T15:58:06.870] [DEBUG] debug-file - Executing task :entry:default@ProcessProfile
+[2025-12-18T15:58:06.872] [DEBUG] debug-file - Task 'entry:default@ProcessProfile' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.873] [DEBUG] debug-file - Incremental task entry:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-12-18T15:58:06.874] [DEBUG] debug-file - entry : default@ProcessProfile cost memory 0.12801361083984375
+[2025-12-18T15:58:06.874] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessProfile...  
+[2025-12-18T15:58:06.875] [DEBUG] debug-file - Executing task :entry:default@ProcessRouterMap
+[2025-12-18T15:58:06.877] [DEBUG] debug-file - Incremental task entry:default@ProcessRouterMap pre-execution cost: 2 ms .
+[2025-12-18T15:58:06.877] [DEBUG] debug-file - entry : default@ProcessRouterMap cost memory 0.12320709228515625
+[2025-12-18T15:58:06.878] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessRouterMap...  
+[2025-12-18T15:58:06.879] [DEBUG] debug-file - Executing task :entry:default@ProcessShareConfig
+[2025-12-18T15:58:06.881] [DEBUG] debug-file - Incremental task entry:default@ProcessShareConfig pre-execution cost: 2 ms .
+[2025-12-18T15:58:06.881] [DEBUG] debug-file - entry : default@ProcessShareConfig cost memory 0.108612060546875
+[2025-12-18T15:58:06.881] [INFO] debug-file - UP-TO-DATE :entry:default@ProcessShareConfig...  
+[2025-12-18T15:58:06.883] [DEBUG] debug-file - Executing task :entry:default@ProcessStartupConfig
+[2025-12-18T15:58:06.883] [DEBUG] debug-file - Task 'entry:default@ProcessStartupConfig' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.884] [DEBUG] debug-file - entry:default@ProcessStartupConfig is not up-to-date, since the output file 'D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\startup\default\startup_config.json' does not exist.
+[2025-12-18T15:58:06.884] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig pre-execution cost: 1 ms .
+[2025-12-18T15:58:06.884] [DEBUG] debug-file - entry : default@ProcessStartupConfig cost memory 0.0956268310546875
+[2025-12-18T15:58:06.884] [DEBUG] debug-file - runTaskFromQueue task cost before running: 143 ms 
+[2025-12-18T15:58:06.885] [INFO] debug-file - Finished :entry:default@ProcessStartupConfig... after 2 ms 
+[2025-12-18T15:58:06.886] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@PreviewProcessResource
+[2025-12-18T15:58:06.888] [DEBUG] debug-file - Executing task :entry:default@PreviewProcessResource
+[2025-12-18T15:58:06.888] [DEBUG] debug-file - Task 'entry:default@PreviewProcessResource' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.888] [DEBUG] debug-file - entry : default@PreviewProcessResource cost memory 0.05852508544921875
+[2025-12-18T15:58:06.889] [DEBUG] debug-file - runTaskFromQueue task cost before running: 147 ms 
+[2025-12-18T15:58:06.889] [INFO] debug-file - Finished :entry:default@PreviewProcessResource... after 2 ms 
+[2025-12-18T15:58:06.891] [DEBUG] debug-file - Executing task :entry:default@GenerateLoaderJson
+[2025-12-18T15:58:06.894] [DEBUG] debug-file - Task 'entry:default@GenerateLoaderJson' cost while wrapping incremental declarations: 1 ms 
+[2025-12-18T15:58:06.902] [DEBUG] debug-file - Incremental task entry:default@GenerateLoaderJson pre-execution cost: 4 ms .
+[2025-12-18T15:58:06.902] [DEBUG] debug-file - entry : default@GenerateLoaderJson cost memory 0.5143356323242188
+[2025-12-18T15:58:06.904] [INFO] debug-file - UP-TO-DATE :entry:default@GenerateLoaderJson...  
+[2025-12-18T15:58:06.906] [DEBUG] debug-file - restool module names: entry; moduleName=entry, taskName=default@PreviewCompileResource
+[2025-12-18T15:58:06.906] [DEBUG] debug-file - Executing task :entry:default@PreviewCompileResource
+[2025-12-18T15:58:06.933] [DEBUG] debug-file - Incremental task entry:default@PreviewCompileResource pre-execution cost: 26 ms .
+[2025-12-18T15:58:06.933] [DEBUG] debug-file - entry : default@PreviewCompileResource cost memory -1.0104446411132812
+[2025-12-18T15:58:06.933] [INFO] debug-file - UP-TO-DATE :entry:default@PreviewCompileResource...  
+[2025-12-18T15:58:06.934] [DEBUG] debug-file - Executing task :entry:default@PreviewHookCompileResource
+[2025-12-18T15:58:06.934] [DEBUG] debug-file - entry : default@PreviewHookCompileResource cost memory 0.01787567138671875
+[2025-12-18T15:58:06.934] [DEBUG] debug-file - runTaskFromQueue task cost before running: 193 ms 
+[2025-12-18T15:58:06.935] [INFO] debug-file - Finished :entry:default@PreviewHookCompileResource... after 1 ms 
+[2025-12-18T15:58:06.935] [DEBUG] debug-file - Executing task :entry:default@CopyPreviewProfile
+[2025-12-18T15:58:06.937] [DEBUG] debug-file - Incremental task entry:default@CopyPreviewProfile pre-execution cost: 2 ms .
+[2025-12-18T15:58:06.937] [DEBUG] debug-file - entry : default@CopyPreviewProfile cost memory 0.08574676513671875
+[2025-12-18T15:58:06.938] [INFO] debug-file - UP-TO-DATE :entry:default@CopyPreviewProfile...  
+[2025-12-18T15:58:06.939] [DEBUG] debug-file - Executing task :entry:default@ReplacePreviewerPage
+[2025-12-18T15:58:06.939] [DEBUG] debug-file - entry : default@ReplacePreviewerPage cost memory 0.01751708984375
+[2025-12-18T15:58:06.939] [DEBUG] debug-file - runTaskFromQueue task cost before running: 197 ms 
+[2025-12-18T15:58:06.939] [INFO] debug-file - Finished :entry:default@ReplacePreviewerPage... after 1 ms 
+[2025-12-18T15:58:06.939] [DEBUG] debug-file - Executing task :entry:buildPreviewerResource
+[2025-12-18T15:58:06.940] [DEBUG] debug-file - entry : buildPreviewerResource cost memory 0.0144805908203125
+[2025-12-18T15:58:06.940] [DEBUG] debug-file - runTaskFromQueue task cost before running: 198 ms 
+[2025-12-18T15:58:06.940] [INFO] debug-file - Finished :entry:buildPreviewerResource... after 1 ms 
+[2025-12-18T15:58:06.941] [DEBUG] debug-file - Executing task :entry:default@PreviewUpdateAssets
+[2025-12-18T15:58:06.943] [DEBUG] debug-file - Incremental task entry:default@PreviewUpdateAssets pre-execution cost: 2 ms .
+[2025-12-18T15:58:06.943] [DEBUG] debug-file - entry : default@PreviewUpdateAssets cost memory 0.116363525390625
+[2025-12-18T15:58:06.944] [INFO] debug-file - UP-TO-DATE :entry:default@PreviewUpdateAssets...  
+[2025-12-18T15:58:06.946] [DEBUG] debug-file - Executing task :entry:default@PreviewArkTS
+[2025-12-18T15:58:06.946] [DEBUG] debug-file - obfuscationOptions: undefined
+[2025-12-18T15:58:06.955] [DEBUG] debug-file - entry:default@PreviewArkTS is not up-to-date, since the output file 'D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader_out\default\ets' does not exist.
+[2025-12-18T15:58:06.955] [DEBUG] debug-file - Incremental task entry:default@PreviewArkTS pre-execution cost: 7 ms .
+[2025-12-18T15:58:06.966] [DEBUG] debug-file - session manager: binding session. socketId=1TrXZddHLFdA9cQ_AAAD, threadId=1@1.
+[2025-12-18T15:58:06.968] [DEBUG] debug-file - entry : default@PreviewArkTS cost memory -0.56365966796875
+[2025-12-18T15:58:18.086] [DEBUG] debug-file - watch worker: send response to session manager. Response type: WatchStart
+[2025-12-18T15:58:18.087] [DEBUG] debug-file - session manager: watch message received from worker 1. Type: WatchStart
+[2025-12-18T15:58:28.573] [DEBUG] debug-file - watch worker: send response to session manager. Response type: WatchResult
+[2025-12-18T15:58:28.574] [DEBUG] debug-file - session manager: watch message received from worker 1. Type: WatchResult
+[2025-12-18T15:58:28.575] [DEBUG] debug-file - Ark compile finished.
+[2025-12-18T15:58:28.577] [INFO] debug-file - Finished :entry:default@PreviewArkTS... after 21 s 630 ms 
+[2025-12-18T15:58:28.577] [DEBUG] debug-file - Executing task :entry:PreviewBuild
+[2025-12-18T15:58:28.577] [DEBUG] debug-file - entry : PreviewBuild cost memory 0.01444244384765625
+[2025-12-18T15:58:28.577] [DEBUG] debug-file - runTaskFromQueue task cost before running: 21 s 835 ms 
+[2025-12-18T15:58:28.577] [INFO] debug-file - Finished :entry:PreviewBuild... after 1 ms 
+[2025-12-18T15:58:28.584] [INFO] debug-file - BUILD SUCCESSFUL in 21 s 842 ms 
+[2025-12-18T15:58:28.584] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.
+[2025-12-18T15:58:28.584] [DEBUG] debug-file - Update task entry:default@CreateModuleInfo output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\profile\default\ModuleInfo.ts cache.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - Incremental task entry:default@CreateModuleInfo post-execution cost:1 ms .
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - Update task entry:default@GeneratePkgContextInfo output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader\default\pkgContextInfo.json cache.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - Incremental task entry:default@GeneratePkgContextInfo post-execution cost:1 ms .
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessRouterMap is up-to-date.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@ProcessShareConfig is up-to-date.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - Update task entry:default@ProcessStartupConfig output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\startup\default\startup_config.json cache.
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - Incremental task entry:default@ProcessStartupConfig post-execution cost:1 ms .
+[2025-12-18T15:58:28.585] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.
+[2025-12-18T15:58:28.586] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreviewCompileResource is up-to-date.
+[2025-12-18T15:58:28.586] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@CopyPreviewProfile is up-to-date.
+[2025-12-18T15:58:28.586] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task entry:default@PreviewUpdateAssets is up-to-date.
+[2025-12-18T15:58:28.587] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader\default cache by regenerate.
+[2025-12-18T15:58:28.587] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-12-18T15:58:28.587] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\process_profile\default\module.json cache by regenerate.
+[2025-12-18T15:58:28.587] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-12-18T15:58:28.588] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\src\main\ets cache by regenerate.
+[2025-12-18T15:58:28.590] [DEBUG] debug-file - Update task entry:default@PreviewArkTS input file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-12-18T15:58:28.590] [DEBUG] debug-file - Update task entry:default@PreviewArkTS output file:D:\OpenHarmony\DevEcoProject\WaterFlow\entry\.preview\default\intermediates\loader_out\default\ets cache.
+[2025-12-18T15:58:28.590] [DEBUG] debug-file - Incremental task entry:default@PreviewArkTS post-execution cost:5 ms .
+[2025-12-18T15:58:28.603] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2025-12-18T15:58:28.604] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-12-18T16:02:59.208] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-18T16:02:59.209] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-12-18T16:02:59.220] [DEBUG] debug-file - bad codeSnippet [object Object]
+[2025-12-18T16:02:59.227] [DEBUG] debug-file - watch worker: worker is ready to be terminated.
+[2025-12-18T16:02:59.227] [DEBUG] debug-file - Server currently has 0 watch-worker
