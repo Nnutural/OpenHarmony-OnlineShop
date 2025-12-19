@@ -39,6 +39,7 @@ struct SearchPage {
   @State private lastSearchedQuery: string = '';
 
   @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
+  @StorageLink('topRectHeight') topRectHeight: number = 0;
 
   private debounceTimer: number = -1;
   private scroller: Scroller = new Scroller();
@@ -199,7 +200,12 @@ struct SearchPage {
       .backgroundColor(Color.White)
     }
     .width(Const.FULL_WIDTH)
-    .padding({ left: 12, right: 12, top: 10, bottom: 10 })
+    .padding({
+      left: 12,
+      right: 12,
+      top: 10 + this.getUIContext().px2vp(this.topRectHeight),
+      bottom: 10
+    })
     .backgroundColor(Color.White)
   }
 

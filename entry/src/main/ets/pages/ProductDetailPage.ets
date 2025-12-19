@@ -232,6 +232,7 @@ struct ProductDetailPage {
   @State private errorMessage: string = '';
   @State private product?: Product = undefined;
   @State private selectedSkuId: string = '';
+  @StorageLink('topRectHeight') topRectHeight: number = 0;
 
   private productId: string = '';
 
@@ -376,7 +377,12 @@ struct ProductDetailPage {
         .width(48)
     }
     .width(Const.FULL_WIDTH)
-    .padding({ left: 12, right: 12, top: 6, bottom: 6 })
+    .padding({
+      left: 12,
+      right: 12,
+      top: 6 + this.getUIContext().px2vp(this.topRectHeight),
+      bottom: 6
+    })
     .backgroundColor(Color.White)
   }
 }
