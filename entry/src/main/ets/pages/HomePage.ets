@@ -28,19 +28,24 @@ import WaterFlowComponent from '../view/WaterFlowComponent';
 @Component
 struct HomePage {
   @StorageLink('topRectHeight') topRectHeight: number = 0;
+  @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
 
   build() {
     Stack({ alignContent: Alignment.Top }) {
-      Image($r('app.media.ic_app_background'))
-        .width(Const.FULL_WIDTH)
-        .height($r('app.float.image_background_height'))
-        .objectFit(ImageFit.Cover)
+      // Image($r('app.media.ic_app_background'))
+      //   .width(Const.FULL_WIDTH)
+      //   .height($r('app.float.image_background_height'))
+      //   .objectFit(ImageFit.Cover)
       Column() {
         SearchComponent()
         ClassifyComponent()
-        SwiperComponent()
+        // SwiperComponent()
         WaterFlowComponent()
+          .layoutWeight(Const.WATER_FLOW_LAYOUT_WEIGHT)
+        this.buildNavBar()
       }
+      .width(Const.FULL_WIDTH)
+      .height(Const.FULL_HEIGHT)
       .padding({
         left: $r('app.float.home_margin_left'),
         right: $r('app.float.home_margin_right'),
@@ -48,5 +53,33 @@ struct HomePage {
       })
     }
     .backgroundColor($r('app.color.home_background_color'))
+  }
+
+  @Builder
+  private buildNavBar() {
+    Row() {
+      this.navItem('产品', true)
+      this.navItem('推荐', false)
+      this.navItem('购物车', false)
+      this.navItem('账户', false)
+    }
+    .width(Const.FULL_WIDTH)
+    .height($r('app.float.home_nav_height'))
+    .backgroundColor(Color.White)
+    .justifyContent(FlexAlign.SpaceAround)
+    .padding({ bottom: this.getUIContext().px2vp(this.bottomRectHeight) / 2 })
+  }
+
+  @Builder
+  private navItem(label: string, active: boolean) {
+    Column() {
+      Text(label)
+        .fontSize($r('app.float.small_font_size'))
+        .fontColor(active ? $r('app.color.focus_color') : Color.Gray)
+        .fontWeight(active ? FontWeight.Bold : FontWeight.Medium)
+    }
+    .width('20%')
+    .height($r('app.float.home_nav_height'))
+    .justifyContent(FlexAlign.Center)
   }
 }

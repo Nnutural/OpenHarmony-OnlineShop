@@ -28,28 +28,30 @@ import FlowItemComponent from '../view/FlowItemComponent';
 export default struct WaterFlowComponent {
   @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
   private datasource: WaterFlowDataSource = new WaterFlowDataSource();
+  private sections: WaterFlowSections = new WaterFlowSections();
 
   aboutToAppear() {
     this.datasource.setDataArray(waterFlowData);
+    this.buildSections();
   }
 
   build() {
-    WaterFlow({ footer: (): void => this.itemFoot() }) {
+    WaterFlow({ footer: (): void => this.itemFoot(), sections: this.sections }) {
       LazyForEach(this.datasource, (item: ProductItem) => {
         FlowItem() {
           FlowItemComponent({
             item: item,
             onItemClick: (product: ProductItem) => {
-              try {
-                this.getUIContext().getRouter().pushUrl({
-                  url: 'pages/ProductDetailPage',
-                  params: {
-                    productId: product.id,
-                    from: 'home'
-                  }
-                });
-              } catch {
+              if (product.id === 'banner') {
+                return;
               }
+              this.getUIContext().getRouter().pushUrl({
+                url: 'pages/ProductDetailPage',
+                params: {
+                  productId: product.id,
+                  from: 'home'
+                }
+              });
             }
           })
 
@@ -77,5 +79,25 @@ export default struct WaterFlowComponent {
       top: $r('app.float.water_flow_row_gap'),
       bottom: this.getUIContext().px2vp(this.bottomRectHeight)
     })
+  }
+
+  private buildSections(): void {
+    this.sections = new WaterFlowSections();
+    const total: number = this.datasource.totalCount();
+    if (total <= 0) {
+      return;
+    }
+    // First item (banner) spans full width with single column, add bottom margin to avoid overlap.
+    this.sections.push({
+      itemsCount: 1,
+      crossCount: 1,
+      margin: { bottom: $r('app.float.banner_section_margin') }
+    });
+    if (total > 1) {
+      this.sections.push({
+        itemsCount: total - 1,
+        crossCount: 2
+      });
+    }
   }
 }

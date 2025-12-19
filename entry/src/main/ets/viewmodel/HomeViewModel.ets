@@ -42,6 +42,8 @@ const swiperImage: Resource[] = [
 /**
  * Home page water flow item init data.
  */
-const waterFlowData: ProductItem[] = productList;
+const bannerItem: ProductItem = new ProductItem('banner', $r('app.media.ic_home_appliances_special'),
+  '', '', '', '', '');
+const waterFlowData: ProductItem[] = [bannerItem, ...productList];
 
 export { classifyTitle, swiperImage, waterFlowData };

@@ -191,6 +191,22 @@
     {
       "name": "footer_text_height",
       "value": "20vp"
+    },
+    {
+      "name": "product_card_height",
+      "value": "260vp"
+    },
+    {
+      "name": "product_card_image_height",
+      "value": "140vp"
+    },
+    {
+      "name": "home_nav_height",
+      "value": "64vp"
+    },
+    {
+      "name": "banner_section_margin",
+      "value": "24vp"
     }
   ]
 }
