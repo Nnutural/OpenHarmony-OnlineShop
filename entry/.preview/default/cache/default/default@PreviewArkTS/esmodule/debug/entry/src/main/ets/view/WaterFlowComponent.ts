@@ -67,11 +67,39 @@ export default class WaterFlowComponent extends ViewPU {
                 {
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                         if (isInitialRender) {
-                            let componentCall = new FlowItemComponent(this, { item: item }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/view/WaterFlowComponent.ets", line: 40, col: 11 });
+                            let componentCall = new FlowItemComponent(this, {
+                                item: item,
+                                onItemClick: (product: ProductItem) => {
+                                    try {
+                                        this.getUIContext().getRouter().pushUrl({
+                                            url: 'pages/ProductDetailPage',
+                                            params: {
+                                                productId: product.id,
+                                                from: 'home'
+                                            }
+                                        });
+                                    }
+                                    catch {
+                                    }
+                                }
+                            }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/view/WaterFlowComponent.ets", line: 40, col: 11 });
                             ViewPU.create(componentCall);
                             let paramsLambda = () => {
                                 return {
-                                    item: item
+                                    item: item,
+                                    onItemClick: (product: ProductItem) => {
+                                        try {
+                                            this.getUIContext().getRouter().pushUrl({
+                                                url: 'pages/ProductDetailPage',
+                                                params: {
+                                                    productId: product.id,
+                                                    from: 'home'
+                                                }
+                                            });
+                                        }
+                                        catch {
+                                        }
+                                    }
                                 };
                             };
                             componentCall.paramsGenerator_ = paramsLambda;
@@ -83,7 +111,7 @@ export default class WaterFlowComponent extends ViewPU {
                 }
                 FlowItem.pop();
             };
-            const __lazyForEachItemIdFunc = (item: ProductItem) => JSON.stringify(item);
+            const __lazyForEachItemIdFunc = (item: ProductItem) => item.id;
             LazyForEach.create("1", this, this.datasource, __lazyForEachItemGenFunction, __lazyForEachItemIdFunc);
             LazyForEach.pop();
         }
@@ -92,7 +120,7 @@ export default class WaterFlowComponent extends ViewPU {
     itemFoot(parent = null) {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
-            Column.debugLine("entry/src/main/ets/view/WaterFlowComponent.ets(54:5)", "entry");
+            Column.debugLine("entry/src/main/ets/view/WaterFlowComponent.ets(68:5)", "entry");
             Column.margin({
                 top: { "id": 16777294, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" },
                 bottom: this.getUIContext().px2vp(this.bottomRectHeight)
@@ -100,7 +128,7 @@ export default class WaterFlowComponent extends ViewPU {
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create({ "id": 16777220, "type": 10003, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
-            Text.debugLine("entry/src/main/ets/view/WaterFlowComponent.ets(55:7)", "entry");
+            Text.debugLine("entry/src/main/ets/view/WaterFlowComponent.ets(69:7)", "entry");
             Text.fontColor(Color.Gray);
             Text.fontSize({ "id": 16777254, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.width(Const.FULL_WIDTH);

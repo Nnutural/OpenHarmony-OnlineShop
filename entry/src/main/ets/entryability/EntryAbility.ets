@@ -36,9 +36,9 @@ export default class EntryAbility extends UIAbility {
         let isLayoutFullScreen = true;
         windowClass.setWindowLayoutFullScreen(isLayoutFullScreen).then(() => {
           Logger.info('EntryAbility', 'Succeeded in setting the window layout to full-screen mode.');
-        }).catch((err: BusinessError) => {
+        }).catch((error: BusinessError) => {
           Logger.error('EntryAbility',
-            `Failed to set the window layout to full-screen mode. Code is ${err.code}, message is ${err.message}`);
+            `Failed to set the window layout to full-screen mode. Code is ${error.code}, message is ${error.message}`);
         });
 
         let type = window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR;
@@ -51,6 +51,7 @@ export default class EntryAbility extends UIAbility {
         let topRectHeight = avoidArea.topRect.height;
         AppStorage.setOrCreate('topRectHeight', topRectHeight);
       } catch (error) {
+        const err: BusinessError = error as BusinessError;
         Logger.error('EntryAbility',
           `Failed to set the window layout to full-screen mode. Code is ${err.code}, message is ${err.message}`);
       }

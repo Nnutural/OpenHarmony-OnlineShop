@@ -15,6 +15,11 @@
 
 export interface IProductItem {
   /**
+   * Product unique id.
+   */
+  id: string;
+
+  /**
    * Product image url.
    */
   image_url: Resource;
@@ -49,6 +54,7 @@ export interface IProductItem {
  * Water flow item.
  */
 export default class ProductItem implements IProductItem {
+  id: string;
   image_url: Resource;
   name: string;
   discount: string;
@@ -56,12 +62,13 @@ export default class ProductItem implements IProductItem {
   promotion: string;
   bonus_points: string;
 
-  constructor(props: ProductItem) {
-    this.image_url = props.image_url;
-    this.name = props.name;
-    this.discount = props.discount;
-    this.price = props.price;
-    this.promotion = props.promotion;
-    this.bonus_points = props.bonus_points;
+  constructor(id: string, imageUrl: Resource, name: string, discount: string, price: string, promotion: string, bonusPoints: string) {
+    this.id = id;
+    this.image_url = imageUrl;
+    this.name = name;
+    this.discount = discount;
+    this.price = price;
+    this.promotion = promotion;
+    this.bonus_points = bonusPoints;
   }
 }

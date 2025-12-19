@@ -3,6 +3,7 @@ if (!("finalizeConstruction" in ViewPU.prototype)) {
 }
 interface FlowItemComponent_Params {
     item?: ProductItem;
+    onItemClick?: (item: ProductItem) => void;
 }
 import { CommonConstants as Const } from "@bundle:com.huawei.waterflow/entry/ets/common/constants/CommonConstants";
 import type ProductItem from '../viewmodel/ProductItem';
@@ -14,12 +15,16 @@ export default class FlowItemComponent extends ViewPU {
             this.paramsGenerator_ = paramsLambda;
         }
         this.item = waterFlowData[0];
+        this.onItemClick = undefined;
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
     setInitiallyProvidedValue(params: FlowItemComponent_Params) {
         if (params.item !== undefined) {
             this.item = params.item;
+        }
+        if (params.onItemClick !== undefined) {
+            this.onItemClick = params.onItemClick;
         }
     }
     updateStateVars(params: FlowItemComponent_Params) {
@@ -31,10 +36,11 @@ export default class FlowItemComponent extends ViewPU {
         this.aboutToBeDeletedInternal();
     }
     private item: ProductItem;
+    private onItemClick?: (item: ProductItem) => void;
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
-            Column.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(29:5)", "entry");
+            Column.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(30:5)", "entry");
             Column.borderRadius({ "id": 16777268, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Column.backgroundColor(Color.White);
             Column.padding({
@@ -42,10 +48,13 @@ export default class FlowItemComponent extends ViewPU {
                 right: { "id": 16777267, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" },
                 bottom: { "id": 16777265, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" }
             });
+            Column.onClick(() => {
+                this.onItemClick?.(this.item);
+            });
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Image.create(this.item?.image_url);
-            Image.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(30:7)", "entry");
+            Image.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(31:7)", "entry");
             Image.width({ "id": 16777264, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Image.height({ "id": 16777264, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Image.objectFit(ImageFit.Contain);
@@ -56,7 +65,7 @@ export default class FlowItemComponent extends ViewPU {
         }, Image);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(this.item?.name);
-            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(38:7)", "entry");
+            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(39:7)", "entry");
             Text.fontSize({ "id": 16777283, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.fontColor(Color.Black);
             Text.fontWeight(FontWeight.Normal);
@@ -65,7 +74,7 @@ export default class FlowItemComponent extends ViewPU {
         Text.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(this.item?.discount);
-            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(43:7)", "entry");
+            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(44:7)", "entry");
             Text.fontSize({ "id": 16777284, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.fontColor(Color.Black);
             Text.fontWeight(FontWeight.Normal);
@@ -78,7 +87,7 @@ export default class FlowItemComponent extends ViewPU {
         Text.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(this.item?.price);
-            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(52:7)", "entry");
+            Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(53:7)", "entry");
             Text.fontSize({ "id": 16777258, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.fontColor({ "id": 16777240, "type": 10001, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.fontWeight(FontWeight.Normal);
@@ -88,7 +97,7 @@ export default class FlowItemComponent extends ViewPU {
         Text.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Row.create();
-            Row.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(58:7)", "entry");
+            Row.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(59:7)", "entry");
             Row.width(Const.FULL_WIDTH);
             Row.justifyContent(FlexAlign.Start);
         }, Row);
@@ -98,7 +107,7 @@ export default class FlowItemComponent extends ViewPU {
                 this.ifElseBranchUpdateFunction(0, () => {
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                         Text.create(`${this.item?.promotion}`);
-                        Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(60:11)", "entry");
+                        Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(61:11)", "entry");
                         Text.height({ "id": 16777275, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
                         Text.fontSize({ "id": 16777269, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
                         Text.fontColor(Color.White);
@@ -128,7 +137,7 @@ export default class FlowItemComponent extends ViewPU {
                 this.ifElseBranchUpdateFunction(0, () => {
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                         Text.create(`${this.item?.bonus_points}`);
-                        Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(76:11)", "entry");
+                        Text.debugLine("entry/src/main/ets/view/FlowItemComponent.ets(77:11)", "entry");
                         Text.height({ "id": 16777275, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
                         Text.fontSize({ "id": 16777269, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
                         Text.fontColor({ "id": 16777240, "type": 10001, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });

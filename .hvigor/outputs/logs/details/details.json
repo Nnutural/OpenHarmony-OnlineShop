@@ -16,20 +16,21 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "1043bfc77febe75fafec0c4309faccf1": {
-        "init": 3118400,
-        "CreateModuleInfo": 924900,
-        "PreCheckSyscap": 383900,
-        "GeneratePkgContextInfo": 8937300,
-        "ProcessStartupConfig": 1606800,
-        "PreviewProcessResource": 3063400,
-        "PreviewHookCompileResource": 506700,
-        "ReplacePreviewerPage": 452900,
-        "buildPreviewerResource": 242000,
-        "PreviewArkTS": 21630838600,
-        "PreviewBuild": 189500
-      },
-      "APP": {
-        "init": 1388500
+        "CreateModuleInfo": 639500,
+        "ConfigureCmake": 307400,
+        "PreCheckSyscap": 279500,
+        "GeneratePkgContextInfo": 3620800,
+        "ProcessIntegratedHsp": 749100,
+        "BuildNativeWithCmake": 634300,
+        "SyscapTransform": 2637300,
+        "ProcessStartupConfig": 994700,
+        "BuildNativeWithNinja": 503500,
+        "BuildJS": 2580600,
+        "ProcessCompiledResources": 630000,
+        "PackingCheck": 3928600,
+        "SignHap": 2225400,
+        "CollectDebugSymbol": 933900,
+        "assembleHap": 142600
       }
     },
     "APIS": [
@@ -40,8 +41,6 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
-      "getStartParams",
-      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -55,7 +54,7 @@
       "getCommandEntryTask"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202512181558067420",
-    "TOTAL_TIME": 21841437500
+    "TOTAL_TIME": 250808000,
+    "BUILD_ID": "202512191140397030"
   }
 }

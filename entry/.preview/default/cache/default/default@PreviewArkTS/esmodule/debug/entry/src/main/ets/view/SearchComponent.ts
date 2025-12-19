@@ -32,6 +32,13 @@ export default class SearchComponent extends ViewPU {
             Row.borderRadius({ "id": 16777280, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Row.backgroundColor(Color.White);
             Row.margin({ top: { "id": 16777279, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" } });
+            Row.onClick(() => {
+                try {
+                    this.getUIContext().getRouter().pushUrl({ url: 'pages/SearchPage' });
+                }
+                catch {
+                }
+            });
         }, Row);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Image.create({ "id": 16777237, "type": 20000, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });

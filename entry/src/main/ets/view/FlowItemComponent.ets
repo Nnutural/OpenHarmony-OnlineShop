@@ -24,6 +24,7 @@ import { waterFlowData } from '../viewmodel/HomeViewModel';
 @Component
 export default struct FlowItemComponent {
   item: ProductItem = waterFlowData[0];
+  onItemClick?: (item: ProductItem) => void;
 
   build() {
     Column() {
@@ -96,6 +97,9 @@ export default struct FlowItemComponent {
       left: $r('app.float.product_layout_margin_left'),
       right: $r('app.float.product_layout_margin_right'),
       bottom: $r('app.float.product_layout_margin_bottom')
+    })
+    .onClick(() => {
+      this.onItemClick?.(this.item);
     })
   }
 }

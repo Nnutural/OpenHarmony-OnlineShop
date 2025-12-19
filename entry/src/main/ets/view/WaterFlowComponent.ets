@@ -37,10 +37,24 @@ export default struct WaterFlowComponent {
     WaterFlow({ footer: (): void => this.itemFoot() }) {
       LazyForEach(this.datasource, (item: ProductItem) => {
         FlowItem() {
-          FlowItemComponent({ item: item })
+          FlowItemComponent({
+            item: item,
+            onItemClick: (product: ProductItem) => {
+              try {
+                this.getUIContext().getRouter().pushUrl({
+                  url: 'pages/ProductDetailPage',
+                  params: {
+                    productId: product.id,
+                    from: 'home'
+                  }
+                });
+              } catch {
+              }
+            }
+          })
 
         }
-      }, (item: ProductItem) => JSON.stringify(item))
+      }, (item: ProductItem) => item.id)
     }
     .layoutWeight(Const.WATER_FLOW_LAYOUT_WEIGHT)
     .layoutDirection(FlexDirection.Column)

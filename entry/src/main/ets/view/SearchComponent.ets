@@ -42,5 +42,11 @@ export default struct SearchComponent {
     .borderRadius($r('app.float.search_radius'))
     .backgroundColor(Color.White)
     .margin({ top: $r('app.float.search_margin_top') })
+    .onClick(() => {
+      try {
+        this.getUIContext().getRouter().pushUrl({ url: 'pages/SearchPage' });
+      } catch {
+      }
+    })
   }
 }
