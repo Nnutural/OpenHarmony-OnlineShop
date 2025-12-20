@@ -14,7 +14,7 @@ https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_NE
 
  路由与页面骨架
 
- 新建 pages/ProductDetailPage.ets。
+ 新建 pages/ProductDetailPage.ets。1
 
  路由参数：至少传 productId（以及可选 from=search/home）。
 
