@@ -31,7 +31,6 @@ interface CartSummary {
 @Entry
 @Component
 struct CartPage {
-  @StorageLink('topRectHeight') topRectHeight: number = 0;
   @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
 
   @State private items: CartItem[] = [];
@@ -295,7 +294,7 @@ struct CartPage {
     .padding({
       left: $r('app.float.home_margin_left'),
       right: $r('app.float.home_margin_right'),
-      top: 10 + this.getUIContext().px2vp(this.topRectHeight),
+      top: 10,
       bottom: 6
     })
     .backgroundColor(Color.White)
@@ -324,7 +323,8 @@ struct CartPage {
         Blank()
           .height(32 + this.getUIContext().px2vp(this.bottomRectHeight))
       }
-      .width(Const.FULL_WIDTH)
+      .width('100%')
+      .constraintSize({ minHeight: '100%', maxHeight: Infinity })
       .justifyContent(FlexAlign.Start)
       .alignItems(HorizontalAlign.Start)
       .padding({
@@ -335,7 +335,7 @@ struct CartPage {
       })
     }
     .layoutWeight(1)
-    .width(Const.FULL_WIDTH)
+    .width('100%')
   }
 
   @Builder
@@ -351,11 +351,11 @@ struct CartPage {
         .fontColor(Color.Gray)
     }
     .width(Const.FULL_WIDTH)
-    .padding({ bottom: 8 })
+    .padding({ top: 8, bottom: 8, left: 12, right: 12 })
   }
 
 @Builder
-private buildCartItem(item: CartItem): void {
+  private buildCartItem(item: CartItem): void {
   Column() {
     Row({ space: 0 }) {
       this.buildCheckbox(this.isSelected(item), () => this.toggleSelect(item), true)
