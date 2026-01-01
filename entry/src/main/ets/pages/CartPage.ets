@@ -31,6 +31,7 @@ interface CartSummary {
 @Entry
 @Component
 struct CartPage {
+  @StorageLink('topRectHeight') topRectHeight: number = 0;
   @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
 
   @State private items: CartItem[] = [];
@@ -47,27 +48,42 @@ struct CartPage {
     this.refreshItems();
   }
 
-  private refreshItems(): void {
-    const nextItems: CartItem[] = CartStore.getItems();
-    const existingKeys: Set<string> = new Set<string>(this.selectedKeys);
-    const mapped: Set<string> = new Set<string>();
-    nextItems.forEach((item: CartItem) => {
-      const key: string = this.itemKey(item);
-      mapped.add(key);
-      if (!existingKeys.has(key)) {
-        existingKeys.add(key);
-      }
-    });
-    // 去除已不存在的项
-    const cleaned: Set<string> = new Set<string>();
-    existingKeys.forEach((key: string) => {
-      if (mapped.has(key)) {
-        cleaned.add(key);
-      }
-    });
-    this.items = nextItems;
-    this.selectedKeys = Array.from(cleaned);
-    this.updateCouponMessageOnSubtotalChange();
+private refreshItems(): void {
+  const nextItems: CartItem[] = CartStore.getItems().map((item: CartItem) => this.cloneCartItem(item));
+
+  const wasAllSelected: boolean =
+    (this.items.length === 0 && this.selectedKeys.length === 0) || // 首次进入：默认全选
+    (this.items.length > 0 && this.selectedKeys.length === this.items.length); // 之前就是全选：维持体验
+
+  const nextKeySet: Set<string> = new Set<string>(nextItems.map((it: CartItem) => this.itemKey(it)));
+
+  // 先取交集：移除已不存在的 key
+  const selected: Set<string> = new Set<string>(
+    this.selectedKeys.filter((k: string) => nextKeySet.has(k))
+  );
+
+  // 仅在“首次/之前全选”的情况下，把新出现项自动选中
+  if (wasAllSelected) {
+    nextKeySet.forEach((k: string) => selected.add(k));
+  }
+
+  this.items = nextItems;
+  this.selectedKeys = Array.from(selected);
+  this.updateCouponMessageOnSubtotalChange();
+}
+
+
+  private cloneCartItem(item: CartItem): CartItem {
+    const copy: CartItem = {
+      productId: item.productId,
+      skuId: item.skuId,
+      skuName: item.skuName,
+      name: item.name,
+      price: item.price,
+      image_url: item.image_url,
+      count: item.count
+    } as CartItem;
+    return copy;
   }
 
   private itemKey(item: CartItem): string {
@@ -78,26 +94,24 @@ struct CartPage {
     return this.selectedKeys.indexOf(this.itemKey(item)) >= 0;
   }
 
-  private toggleSelect(item: CartItem): void {
-    const key: string = this.itemKey(item);
-    const next: string[] = this.selectedKeys.filter((k: string) => k !== key);
-    if (next.length === this.selectedKeys.length) {
-      next.push(key);
+  // 单个勾选（checked 为 true/false），会联动全选与总价
+  private setSelected(key: string, checked: boolean): void {
+    const filtered: string[] = this.selectedKeys.filter((k: string) => k !== key);
+    if (checked) {
+      filtered.push(key);
     }
-    this.selectedKeys = next;
+    this.selectedKeys = filtered;
     this.updateCouponMessageOnSubtotalChange();
   }
 
-  private toggleSelectAll(): void {
-    if (this.items.length === 0) {
+  // 全选勾选（checked 为 true/false），会联动每个商品与总价
+  private setSelectAll(checked: boolean): void {
+    if (!checked) {
+      this.selectedKeys = [];
+      this.updateCouponMessageOnSubtotalChange();
       return;
     }
-    const allSelected: boolean = this.selectedKeys.length === this.items.length;
-    if (allSelected) {
-      this.selectedKeys = [];
-    } else {
-      this.selectedKeys = this.items.map((item: CartItem) => this.itemKey(item));
-    }
+    this.selectedKeys = this.items.map((item: CartItem) => this.itemKey(item));
     this.updateCouponMessageOnSubtotalChange();
   }
 
@@ -165,14 +179,36 @@ struct CartPage {
       .reduce((sum: number, item: CartItem) => sum + item.count, 0);
   }
 
-  private onCountChange(item: CartItem, delta: number): void {
-    const nextCount: number = item.count + delta;
-    if (nextCount <= 0) {
-      return;
-    }
-    CartStore.updateCount(item.productId, item.skuId, nextCount);
-    this.refreshItems();
+private onCountChange(item: CartItem, delta: number): void {
+  const key: string = this.itemKey(item);
+
+  // 以当前 this.items 为准，避免快速连点读到旧 count
+  const idx: number = this.items.findIndex((it: CartItem) => this.itemKey(it) === key);
+  if (idx < 0) {
+    return;
   }
+
+  const current: number = this.items[idx].count;
+  const nextCount: number = current + delta;
+  if (nextCount <= 0) {
+    return;
+  }
+
+  // 先本地更新 items（乐观更新），保证 UI 立即变化
+  const nextItems: CartItem[] = this.items.map((it: CartItem) => {
+    if (this.itemKey(it) !== key) {
+      return it;
+    }
+    const copy: CartItem = this.cloneCartItem(it);
+    copy.count = nextCount;
+    return copy;
+  });
+
+  this.items = nextItems;
+  CartStore.updateCount(item.productId, item.skuId, nextCount);
+
+  this.updateCouponMessageOnSubtotalChange();
+}
 
   private onRemove(item: CartItem): void {
     CartStore.remove(item.productId, item.skuId);
@@ -238,6 +274,7 @@ struct CartPage {
 
   build() {
     Stack({ alignContent: Alignment.Bottom }) {
+      // 主体（Header + Content/Empty）
       Column() {
         this.buildHeader()
         if (this.items.length === 0) {
@@ -249,9 +286,14 @@ struct CartPage {
       .width(Const.FULL_WIDTH)
       .height(Const.FULL_HEIGHT)
 
-      if (this.items.length > 0) {
-        this.buildFooter(this.getSummary())
+      // 底部固定区：Footer（可选） + NavBar（始终在最下方）
+      Column() {
+        if (this.items.length > 0) {
+          this.buildFooter(this.getSummary())
+        }
+        this.buildNavBar()
       }
+      .width(Const.FULL_WIDTH)
     }
     .width(Const.FULL_WIDTH)
     .height(Const.FULL_HEIGHT)
@@ -259,7 +301,7 @@ struct CartPage {
   }
 
   @Builder
-  private buildHeader() {
+  private buildHeader(): void {
     Row() {
       Row() {
         Text('<')
@@ -294,21 +336,22 @@ struct CartPage {
     .padding({
       left: $r('app.float.home_margin_left'),
       right: $r('app.float.home_margin_right'),
-      top: 10,
+      top: 10 + this.getUIContext().px2vp(this.topRectHeight),
       bottom: 6
     })
     .backgroundColor(Color.White)
   }
 
   @Builder
-  private buildContent(summary: CartSummary) {
+  private buildContent(summary: CartSummary): void {
     Scroll() {
       Column() {
         this.buildSelectAllBar()
 
         ForEach(this.items, (item: CartItem) => {
           this.buildCartItem(item)
-        }, (item: CartItem) => this.itemKey(item))
+        }, (item: CartItem) => `${this.itemKey(item)}_${item.count}_${this.isSelected(item) ? 1 : 0}`)
+
 
         Column() {
           this.buildDiscountCard()
@@ -320,11 +363,15 @@ struct CartPage {
         }
         .margin({ top: 12 })
 
-        Blank()
-          .height(32 + this.getUIContext().px2vp(this.bottomRectHeight))
+        // 为底部固定 Footer + NavBar 预留空间（避免被遮挡）
+        if (this.items.length > 0) {
+          Blank().height(64) // Footer 约 44 + 上下 padding 10
+        }
+        Blank().height($r('app.float.home_nav_height')) // NavBar 高度
+        Blank().height(this.getUIContext().px2vp(this.bottomRectHeight)) // 系统底部安全区
+        Blank().height(12)
       }
-      .width('100%')
-      .constraintSize({ minHeight: '100%', maxHeight: Infinity })
+      .width(Const.FULL_WIDTH)
       .justifyContent(FlexAlign.Start)
       .alignItems(HorizontalAlign.Start)
       .padding({
@@ -335,16 +382,19 @@ struct CartPage {
       })
     }
     .layoutWeight(1)
-    .width('100%')
+    .width(Const.FULL_WIDTH)
   }
 
   @Builder
-  private buildSelectAllBar() {
+  private buildSelectAllBar(): void {
     Row() {
-      this.buildCheckbox(this.selectedKeys.length === this.items.length && this.items.length > 0, () => this.toggleSelectAll(), true)
+      this.buildCheckbox(this.items.length > 0 && this.selectedKeys.length === this.items.length,
+        (checked) => this.setSelectAll(checked), true)
       Text('全选')
         .fontSize($r('app.float.small_font_size'))
         .fontColor(Color.Black)
+
+      Blank().layoutWeight(1)
 
       Text(`已选 ${this.selectedQuantity()} 件`)
         .fontSize($r('app.float.small_font_size'))
@@ -354,49 +404,81 @@ struct CartPage {
     .padding({ top: 8, bottom: 8, left: 12, right: 12 })
   }
 
-@Builder
+  @Builder
   private buildCartItem(item: CartItem): void {
-  Column() {
-    Row({ space: 0 }) {
-      this.buildCheckbox(this.isSelected(item), () => this.toggleSelect(item), true)
+    Column() {
+      Row({ space: 0 }) {
+        this.buildCheckbox(this.isSelected(item),
+          (checked) => this.setSelected(this.itemKey(item), checked), true)
 
-      Image(item.image_url)
-        .width(76)
-        .height(76)
-        .borderRadius($r('app.float.product_layout_radius'))
-        .objectFit(ImageFit.Contain)
-        .backgroundColor(Color.White)
-        .margin({ right: 8 })
+        Image(item.image_url)
+          .width(76)
+          .height(76)
+          .borderRadius($r('app.float.product_layout_radius'))
+          .objectFit(ImageFit.Contain)
+          .backgroundColor(Color.White)
+          .margin({ right: 8 })
 
-      // 信息区（保持你原来的内容）
-      Column() {
-        // ... 你的 Text/价格/Stepper ...
+        Column() {
+          Text(item.name)
+            .fontSize($r('app.float.small_font_size'))
+            .fontWeight(FontWeight.Medium)
+            .fontColor(Color.Black)
+            .maxLines(2)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
+
+          Text(item.skuName)
+            .fontSize($r('app.float.smaller_font_size'))
+            .fontColor(Color.Gray)
+            .opacity(Const.SIXTY_OPACITY)
+            .margin({ top: 4 })
+
+          Row() {
+            Text(item.price)
+              .fontSize($r('app.float.middle_font_size'))
+              .fontColor($r('app.color.focus_color'))
+              .fontWeight(FontWeight.Bold)
+
+            Blank().layoutWeight(1)
+
+            Text(this.formatMoney(this.parsePrice(item.price) * item.count))
+              .fontSize($r('app.float.small_font_size'))
+              .fontColor(Color.Black)
+              .fontWeight(FontWeight.Medium)
+          }
+          .width(Const.FULL_WIDTH)
+          .margin({ top: 6 })
+
+          Row() {
+            this.buildStepper(item)
+            Blank().layoutWeight(1)
+          }
+          .width(Const.FULL_WIDTH)
+          .margin({ top: 8 })
+        }
+        .layoutWeight(1)
+
+        Column() {
+          Text('删除')
+            .fontSize($r('app.float.smaller_font_size'))
+            .padding({ left: 8, right: 8, top: 8, bottom: 8 })
+            .onClick(() => this.onRemove(item))
+        }
+        .alignItems(HorizontalAlign.End)
+        .justifyContent(FlexAlign.Start)
       }
-      .layoutWeight(1)
-
-      // 删除区：不要 Blank().layoutWeight(1)
-      Column() {
-        Text('删除')
-          .fontSize($r('app.float.smaller_font_size'))
-          .padding({ left: 8, right: 8, top: 8, bottom: 8 })
-          .onClick(() => this.onRemove(item))
-      }
-      .alignItems(HorizontalAlign.End)
-      .justifyContent(FlexAlign.Start)
+      .width(Const.FULL_WIDTH)
+      .alignItems(VerticalAlign.Top)
     }
     .width(Const.FULL_WIDTH)
-    .alignItems(VerticalAlign.Top)
+    .backgroundColor(Color.White)
+    .borderRadius($r('app.float.product_layout_radius'))
+    .padding({ left: 12, right: 12, top: 12, bottom: 12 })
+    .margin({ bottom: $r('app.float.water_flow_row_gap') })
   }
-  .width(Const.FULL_WIDTH)
-  .backgroundColor(Color.White)
-  .borderRadius($r('app.float.product_layout_radius'))
-  .padding({ left: 12, right: 12, top: 12, bottom: 12 })
-  .margin({ bottom: $r('app.float.water_flow_row_gap') })
-}
-
 
   @Builder
-  private buildCheckbox(active: boolean, onToggle: () => void, withRightMargin: boolean = false) {
+  private buildCheckbox(active: boolean, onToggle: (checked: boolean) => void, withRightMargin: boolean = false): void {
     Row() {
       Checkbox()
         .select(active)
@@ -405,7 +487,7 @@ struct CartPage {
         .width(20)
         .height(20)
         .borderRadius(10)
-        .onChange(() => onToggle())
+        .onChange((checked) => onToggle(checked))
     }
     .backgroundColor(Color.Transparent)
     .width(44)
@@ -416,7 +498,7 @@ struct CartPage {
   }
 
   @Builder
-  private buildStepper(item: CartItem) {
+  private buildStepper(item: CartItem): void {
     Row({ space: 0 }) {
       Button('-')
         .width(44)
@@ -460,7 +542,7 @@ struct CartPage {
   }
 
   @Builder
-  private buildDiscountCard() {
+  private buildDiscountCard(): void {
     Column() {
       Row() {
         Row() {
@@ -508,7 +590,7 @@ struct CartPage {
   }
 
   @Builder
-  private buildPriceCard(summary: CartSummary) {
+  private buildPriceCard(summary: CartSummary): void {
     Column() {
       this.buildPriceRow('商品总价', this.formatMoney(summary.subtotal))
       this.buildPriceRow('折扣优惠', `-${this.formatMoney(summary.discount)}`, true)
@@ -533,7 +615,7 @@ struct CartPage {
   }
 
   @Builder
-  private buildPriceRow(label: string, value: string, highlight: boolean = false, strong: boolean = false) {
+  private buildPriceRow(label: string, value: string, highlight: boolean = false, strong: boolean = false): void {
     Row() {
       Text(label)
         .fontSize(strong ? 16 : $r('app.float.small_font_size'))
@@ -554,10 +636,13 @@ struct CartPage {
   }
 
   @Builder
-  private buildFooter(summary: CartSummary) {
+  private buildFooter(summary: CartSummary): void {
+    // 注意：这里不再把 bottomRectHeight 加进 footer 的 bottom padding，
+    // 底部安全区由 NavBar 承担，避免“Footer + NavBar”双重垫高导致留白/错位。
     if (this.editMode) {
       Row() {
-        this.buildCheckbox(this.selectedKeys.length === this.items.length && this.items.length > 0, () => this.toggleSelectAll(), true)
+        this.buildCheckbox(this.items.length > 0 && this.selectedKeys.length === this.items.length,
+          (checked) => this.setSelectAll(checked), true)
         Text('全选')
           .fontSize($r('app.float.small_font_size'))
           .fontColor(Color.Black)
@@ -582,12 +667,7 @@ struct CartPage {
           .onClick(() => this.removeSelected())
       }
       .width(Const.FULL_WIDTH)
-      .padding({
-        left: 12,
-        right: 12,
-        top: 10,
-        bottom: 10 + this.getUIContext().px2vp(this.bottomRectHeight)
-      })
+      .padding({ left: 12, right: 12, top: 10, bottom: 10 })
       .backgroundColor(Color.White)
       .shadow({ radius: 12, color: '#1A000000', offsetX: 0, offsetY: -2 })
     } else {
@@ -616,19 +696,14 @@ struct CartPage {
           .onClick(() => this.onCheckout())
       }
       .width(Const.FULL_WIDTH)
-      .padding({
-        left: 12,
-        right: 12,
-        top: 10,
-        bottom: 10 + this.getUIContext().px2vp(this.bottomRectHeight)
-      })
+      .padding({ left: 12, right: 12, top: 10, bottom: 10 })
       .backgroundColor(Color.White)
       .shadow({ radius: 12, color: '#1A000000', offsetX: 0, offsetY: -2 })
     }
   }
 
   @Builder
-  private buildEmpty() {
+  private buildEmpty(): void {
     Column() {
       Text('购物车空空如也')
         .fontSize(16)
@@ -659,5 +734,45 @@ struct CartPage {
       left: $r('app.float.home_margin_left'),
       right: $r('app.float.home_margin_right')
     })
+  }
+
+  // 固定在页面最底部（在 Footer 下方），并承担 bottomRectHeight 安全区
+  @Builder
+  private buildNavBar(): void {
+    Row() {
+      this.navItem('产品', false, () => {
+        try {
+          this.getUIContext().getRouter().replaceUrl({ url: 'pages/HomePage' });
+        } catch {
+        }
+      })
+      this.navItem('推荐', false, () => {
+        try {
+          this.getUIContext().getRouter().replaceUrl({ url: 'pages/HomePage' });
+        } catch {
+        }
+      })
+      this.navItem('购物车', true, () => {})
+      this.navItem('账户', false, () => {})
+    }
+    .width(Const.FULL_WIDTH)
+    .height($r('app.float.home_nav_height'))
+    .backgroundColor(Color.White)
+    .justifyContent(FlexAlign.SpaceAround)
+    .padding({ bottom: this.getUIContext().px2vp(this.bottomRectHeight) / 2 })
+  }
+
+  @Builder
+  private navItem(label: string, active: boolean, onClick?: () => void): void {
+    Column() {
+      Text(label)
+        .fontSize($r('app.float.small_font_size'))
+        .fontColor(active ? $r('app.color.focus_color') : Color.Gray)
+        .fontWeight(active ? FontWeight.Bold : FontWeight.Medium)
+    }
+    .width('20%')
+    .height($r('app.float.home_nav_height'))
+    .justifyContent(FlexAlign.Center)
+    .onClick(() => onClick?.())
   }
 }
