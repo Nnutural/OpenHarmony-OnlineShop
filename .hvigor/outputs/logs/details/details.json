@@ -16,29 +16,19 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "1043bfc77febe75fafec0c4309faccf1": {
-        "init": 573800,
-        "CreateModuleInfo": 949700,
-        "MergeProfile": 30108400,
-        "CreateBuildProfile": 3286900,
-        "PreCheckSyscap": 375100,
-        "GeneratePkgContextInfo": 9264800,
-        "ProcessProfile": 824555100,
-        "ProcessRouterMap": 4798700,
-        "ProcessShareConfig": 3497200,
-        "ProcessStartupConfig": 1666800,
-        "PreviewProcessResource": 3619700,
-        "GenerateLoaderJson": 16325900,
-        "PreviewCompileResource": 824724200,
-        "PreviewHookCompileResource": 376100,
-        "CopyPreviewProfile": 7710300,
-        "ReplacePreviewerPage": 458200,
-        "buildPreviewerResource": 294400,
-        "PreviewUpdateAssets": 9862000,
-        "PreviewArkTS": 51642344300,
-        "PreviewBuild": 374000
-      },
-      "APP": {
-        "init": 329300
+        "CreateModuleInfo": 486700,
+        "PreCheckSyscap": 232700,
+        "GeneratePkgContextInfo": 4231800,
+        "ProcessStartupConfig": 1273000,
+        "PreviewProcessResource": 2001100,
+        "PreviewCompileResource": 601312400,
+        "PreviewHookCompileResource": 290100,
+        "CopyPreviewProfile": 4919000,
+        "ReplacePreviewerPage": 275300,
+        "buildPreviewerResource": 141500,
+        "PreviewUpdateAssets": 4138500,
+        "PreviewArkTS": 6337690800,
+        "PreviewBuild": 173700
       }
     },
     "APIS": [
@@ -49,8 +39,6 @@
       "getAllNodes",
       "getRootNode",
       "getNodeName",
-      "getStartParams",
-      "buildFinished",
       "getNodePath",
       "subNodes",
       "getExtraOption",
@@ -61,10 +49,11 @@
       "getProductName",
       "nodesEvaluated",
       "getParameter",
-      "getCommandEntryTask"
+      "getCommandEntryTask",
+      "getStartParams"
     ],
     "CONFIG_PROPERTIES": {},
-    "BUILD_ID": "202601011154366190",
-    "TOTAL_TIME": 53536074000
+    "TOTAL_TIME": 7110342300,
+    "BUILD_ID": "202601011735447030"
   }
 }

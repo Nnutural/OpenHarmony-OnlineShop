@@ -68,10 +68,15 @@ struct HomePage {
   @Builder
   private buildNavBar() {
     Row() {
-      this.navItem('产品', true)
-      this.navItem('推荐', false)
-      this.navItem('购物车', false)
-      this.navItem('账户', false)
+      this.navItem('产品', true, () => {})
+      this.navItem('推荐', false, () => {})
+      this.navItem('购物车', false, () => {
+        try {
+          this.getUIContext().getRouter().pushUrl({ url: 'pages/CartPage' });
+        } catch {
+        }
+      })
+      this.navItem('账户', false, () => {})
     }
     .width(Const.FULL_WIDTH)
     .height($r('app.float.home_nav_height'))
@@ -81,7 +86,7 @@ struct HomePage {
   }
 
   @Builder
-  private navItem(label: string, active: boolean) {
+  private navItem(label: string, active: boolean, onClick?: () => void) {
     Column() {
       Text(label)
         .fontSize($r('app.float.small_font_size'))
@@ -91,5 +96,6 @@ struct HomePage {
     .width('20%')
     .height($r('app.float.home_nav_height'))
     .justifyContent(FlexAlign.Center)
+    .onClick(() => onClick?.())
   }
 }

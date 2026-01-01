@@ -153,23 +153,30 @@ class HomePage extends ViewPU {
             Row.justifyContent(FlexAlign.SpaceAround);
             Row.padding({ bottom: this.getUIContext().px2vp(this.bottomRectHeight) / 2 });
         }, Row);
-        this.navItem.bind(this)('产品', true);
-        this.navItem.bind(this)('推荐', false);
-        this.navItem.bind(this)('购物车', false);
-        this.navItem.bind(this)('账户', false);
+        this.navItem.bind(this)('产品', true, () => { });
+        this.navItem.bind(this)('推荐', false, () => { });
+        this.navItem.bind(this)('购物车', false, () => {
+            try {
+                this.getUIContext().getRouter().pushUrl({ url: 'pages/CartPage' });
+            }
+            catch {
+            }
+        });
+        this.navItem.bind(this)('账户', false, () => { });
         Row.pop();
     }
-    private navItem(label: string, active: boolean, parent = null) {
+    private navItem(label: string, active: boolean, onClick?: () => void, parent = null) {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
-            Column.debugLine("entry/src/main/ets/pages/HomePage.ets(85:5)", "entry");
+            Column.debugLine("entry/src/main/ets/pages/HomePage.ets(90:5)", "entry");
             Column.width('20%');
             Column.height({ "id": 16777300, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Column.justifyContent(FlexAlign.Center);
+            Column.onClick(() => onClick?.());
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(label);
-            Text.debugLine("entry/src/main/ets/pages/HomePage.ets(86:7)", "entry");
+            Text.debugLine("entry/src/main/ets/pages/HomePage.ets(91:7)", "entry");
             Text.fontSize({ "id": 16777283, "type": 10002, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" });
             Text.fontColor(active ? { "id": 16777240, "type": 10001, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" } : Color.Gray);
             Text.fontWeight(active ? FontWeight.Bold : FontWeight.Medium);
