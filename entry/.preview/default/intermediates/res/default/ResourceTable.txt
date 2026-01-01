@@ -16,6 +16,7 @@ color focus_color 0x01000018
 color home_background_color 0x01000019
 color indicator_select 0x0100001a
 color start_window_background 0x0100001b
+float banner_section_margin 0x01000053
 float bonus_points_margin_top 0x0100001f
 float bonus_points_padding_left 0x01000020
 float bonus_points_padding_right 0x01000021
@@ -26,6 +27,7 @@ float footer_text_height 0x01000025
 float footer_text_size 0x01000026
 float home_margin_left 0x01000027
 float home_margin_right 0x01000028
+float home_nav_height 0x01000054
 float image_background_height 0x01000029
 float middle_font_size 0x0100002a
 float more_height 0x0100002b
@@ -33,6 +35,8 @@ float more_margin_left 0x0100002c
 float more_margin_right 0x0100002d
 float more_width 0x0100002e
 float piece_line_height 0x0100002f
+float product_card_height 0x01000055
+float product_card_image_height 0x01000056
 float product_image_size 0x01000030
 float product_layout_margin_bottom 0x01000031
 float product_layout_margin_left 0x01000032

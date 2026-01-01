@@ -1,0 +1,11 @@
+# VS Code workspace file
+WaterFlow.code-workspace
+
+# Build outputs
+entry/build/
+
+# Preview/generated artifacts
+entry/.preview/
+
+# Hvigor build logs and caches
+.hvigor/

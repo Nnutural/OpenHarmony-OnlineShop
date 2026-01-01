@@ -1,4 +1,4 @@
-import type ProductItem from './ProductItem';
+import ProductItem from "@bundle:com.huawei.waterflow/entry/ets/viewmodel/ProductItem";
 import { productList } from "@bundle:com.huawei.waterflow/entry/ets/services/product.service";
 /**
  * Home page classify title data.
@@ -23,5 +23,6 @@ const swiperImage: Resource[] = [
 /**
  * Home page water flow item init data.
  */
-const waterFlowData: ProductItem[] = productList;
+const bannerItem: ProductItem = new ProductItem('banner', { "id": 16777233, "type": 20000, params: [], "bundleName": "com.huawei.waterflow", "moduleName": "entry" }, '', '', '', '', '');
+const waterFlowData: ProductItem[] = [bannerItem, ...productList];
 export { classifyTitle, swiperImage, waterFlowData };

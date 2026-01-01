@@ -80,13 +80,13 @@
       "name": "swiper_margin_top",
       "value": "12vp"
     },
-    {
+    { 
       "name": "swiper_margin_bottom",
       "value": "12vp"
     },
     {
       "name": "image_background_height",
-      "value": "222vp"
+      "value": "140vp"
     },
     {
       "name": "home_margin_left",

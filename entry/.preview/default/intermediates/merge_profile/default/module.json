@@ -9,7 +9,7 @@
 		"apiReleaseType": "Release",
 		"compileSdkVersion": "6.0.0.47",
 		"targetAPIVersion": 60000020,
-		"minAPIVersion": 50005017,
+		"minAPIVersion": 60000020,
 		"compileSdkType": "HarmonyOS",
 		"targetMinorAPIVersion": 0,
 		"targetPatchAPIVersion": 0,

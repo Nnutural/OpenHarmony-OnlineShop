@@ -16,7 +16,6 @@
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import ClassifyComponent from '../view/ClassifyComponent';
 import SearchComponent from '../view/SearchComponent';
-import SwiperComponent from '../view/SwiperComponent';
 import WaterFlowComponent from '../view/WaterFlowComponent';
 
 /**
@@ -31,27 +30,38 @@ struct HomePage {
   @StorageLink('bottomRectHeight') bottomRectHeight: number = 0;
 
   build() {
-    Stack({ alignContent: Alignment.Top }) {
-      // Image($r('app.media.ic_app_background'))
-      //   .width(Const.FULL_WIDTH)
-      //   .height($r('app.float.image_background_height'))
-      //   .objectFit(ImageFit.Cover)
+    Column() {
+      Stack({ alignContent: Alignment.TopStart }) {
+        Image($r('app.media.ic_app_background'))
+          .width(Const.FULL_WIDTH)
+          .height($r('app.float.image_background_height'))
+          .objectFit(ImageFit.Cover)
+        Column() {
+          SearchComponent()
+          ClassifyComponent()
+        }
+        .width(Const.FULL_WIDTH)
+        .padding({
+          left: $r('app.float.home_margin_left'),
+          right: $r('app.float.home_margin_right'),
+          top: this.getUIContext().px2vp(this.topRectHeight)
+        })
+      }
+
       Column() {
-        SearchComponent()
-        ClassifyComponent()
-        // SwiperComponent()
         WaterFlowComponent()
           .layoutWeight(Const.WATER_FLOW_LAYOUT_WEIGHT)
         this.buildNavBar()
       }
       .width(Const.FULL_WIDTH)
-      .height(Const.FULL_HEIGHT)
+      .layoutWeight(1)
       .padding({
         left: $r('app.float.home_margin_left'),
-        right: $r('app.float.home_margin_right'),
-        top: this.getUIContext().px2vp(this.topRectHeight)
+        right: $r('app.float.home_margin_right')
       })
     }
+    .width(Const.FULL_WIDTH)
+    .height(Const.FULL_HEIGHT)
     .backgroundColor($r('app.color.home_background_color'))
   }
 

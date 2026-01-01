@@ -331,5 +331,21 @@
 			"type":	"media",
 			"name":	"ic_holder_50e",
 			"id":	"0x01000052"
+		}, {
+			"type":	"float",
+			"name":	"banner_section_margin",
+			"id":	"0x01000053"
+		}, {
+			"type":	"float",
+			"name":	"home_nav_height",
+			"id":	"0x01000054"
+		}, {
+			"type":	"float",
+			"name":	"product_card_height",
+			"id":	"0x01000055"
+		}, {
+			"type":	"float",
+			"name":	"product_card_image_height",
+			"id":	"0x01000056"
 		}]
 }
