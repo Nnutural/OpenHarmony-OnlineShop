@@ -273,74 +273,72 @@ private onCountChange(item: CartItem, delta: number): void {
   }
 
   build() {
-    Stack({ alignContent: Alignment.Bottom }) {
-      // 主体（Header + Content/Empty）
-      Column() {
-        this.buildHeader()
-        if (this.items.length === 0) {
-          this.buildEmpty()
-        } else {
-          this.buildContent(this.getSummary())
-        }
-      }
-      .width(Const.FULL_WIDTH)
-      .height(Const.FULL_HEIGHT)
+    Column() {
+      this.buildHeader()
 
-      // 底部固定区：Footer（可选） + NavBar（始终在最下方）
-      Column() {
-        if (this.items.length > 0) {
-          this.buildFooter(this.getSummary())
-        }
-        this.buildNavBar()
+      if (this.items.length === 0) {
+        this.buildEmpty()
+      } else {
+        this.buildContent(this.getSummary())   // 中间滚动区
+        this.buildFooter(this.getSummary())    // 固定在内容区下方
       }
-      .width(Const.FULL_WIDTH)
+
+      this.buildNavBar() // 永远在最底部
     }
     .width(Const.FULL_WIDTH)
     .height(Const.FULL_HEIGHT)
     .backgroundColor($r('app.color.home_background_color'))
   }
 
+
   @Builder
   private buildHeader(): void {
-    Row() {
+    // 用 Column 承接“状态栏安全区 + 真正的头部栏”，并把背景刷成白色
+    Column() {
+      // 1) 状态栏/刘海安全区占位
+      Blank()
+        .height(this.getUIContext().px2vp(this.topRectHeight))
+
+      // 2) 真正的头部栏（高度固定 40，不要再塞 top padding）
       Row() {
         Text('<')
           .fontSize($r('app.float.small_font_size'))
           .fontColor(Color.Black)
           .padding({ left: 8, right: 8, top: 8, bottom: 8 })
+          .onClick(() => {
+            try {
+              this.getUIContext().getRouter().back();
+            } catch {}
+          })
+
+        Text('购物车')
+          .layoutWeight(1)
+          .textAlign(TextAlign.Center)
+          .fontSize(16)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(Color.Black)
+
+        Text(this.editMode ? '完成' : '管理')
+          .fontSize($r('app.float.small_font_size'))
+          .fontColor(Color.Black)
+          .padding({ left: 8, right: 8, top: 8, bottom: 8 })
+          .onClick(() => {
+            this.editMode = !this.editMode;
+          })
       }
-      .onClick(() => {
-        try {
-          this.getUIContext().getRouter().back();
-        } catch {
-        }
+      .width(Const.FULL_WIDTH)
+      .height(40)
+      .padding({
+        left: $r('app.float.home_margin_left'),
+        right: $r('app.float.home_margin_right'),
+        bottom: 6
       })
-
-      Text('购物车')
-        .layoutWeight(1)
-        .textAlign(TextAlign.Center)
-        .fontSize(16)
-        .fontWeight(FontWeight.Bold)
-        .fontColor(Color.Black)
-
-      Text(this.editMode ? '完成' : '管理')
-        .fontSize($r('app.float.small_font_size'))
-        .fontColor(Color.Black)
-        .padding({ left: 8, right: 8, top: 8, bottom: 8 })
-        .onClick(() => {
-          this.editMode = !this.editMode;
-        })
     }
     .width(Const.FULL_WIDTH)
-    .height(40)
-    .padding({
-      left: $r('app.float.home_margin_left'),
-      right: $r('app.float.home_margin_right'),
-      top: 10 + this.getUIContext().px2vp(this.topRectHeight),
-      bottom: 6
-    })
-    .backgroundColor(Color.White)
+    .backgroundColor(Color.White) // 关键：把安全区这块也刷成白色，就不“灰色留白”了
   }
+
+
 
   @Builder
   private buildContent(summary: CartSummary): void {
@@ -363,12 +361,6 @@ private onCountChange(item: CartItem, delta: number): void {
         }
         .margin({ top: 12 })
 
-        // 为底部固定 Footer + NavBar 预留空间（避免被遮挡）
-        if (this.items.length > 0) {
-          Blank().height(64) // Footer 约 44 + 上下 padding 10
-        }
-        Blank().height($r('app.float.home_nav_height')) // NavBar 高度
-        Blank().height(this.getUIContext().px2vp(this.bottomRectHeight)) // 系统底部安全区
         Blank().height(12)
       }
       .width(Const.FULL_WIDTH)
@@ -388,8 +380,12 @@ private onCountChange(item: CartItem, delta: number): void {
   @Builder
   private buildSelectAllBar(): void {
     Row() {
-      this.buildCheckbox(this.items.length > 0 && this.selectedKeys.length === this.items.length,
-        (checked) => this.setSelectAll(checked), true)
+      this.buildCheckbox(
+        this.items.length > 0 && this.selectedKeys.length === this.items.length,
+        (checked) => this.setSelectAll(checked),
+        true
+      )
+
       Text('全选')
         .fontSize($r('app.float.small_font_size'))
         .fontColor(Color.Black)
@@ -401,8 +397,13 @@ private onCountChange(item: CartItem, delta: number): void {
         .fontColor(Color.Gray)
     }
     .width(Const.FULL_WIDTH)
-    .padding({ top: 8, bottom: 8, left: 12, right: 12 })
+    .height(44)                         // ✅ 固定高度，变紧凑
+    .padding({ left: 12, right: 12 })   // ✅ 只保留左右内边距
+    .backgroundColor(Color.White)       // ✅ 不再“灰色大留白”
+    // 可选：加一条分隔线，让层次更清晰
+    // .border({ width: { bottom: 1 }, color: '#E8E8E8' })
   }
+
 
   @Builder
   private buildCartItem(item: CartItem): void {
@@ -490,8 +491,8 @@ private onCountChange(item: CartItem, delta: number): void {
         .onChange((checked) => onToggle(checked))
     }
     .backgroundColor(Color.Transparent)
-    .width(44)
-    .height(44)
+    .width(36)
+    .height(36)
     .alignItems(VerticalAlign.Center)
     .justifyContent(FlexAlign.Center)
     .margin({ right: withRightMargin ? 8 : 0 })
