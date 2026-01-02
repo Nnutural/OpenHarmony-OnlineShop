@@ -42,36 +42,33 @@ struct CartPage {
   @State private appliedCoupon: string = '';
   @State private couponMessage: string = '';
 
-  private taxRate: number = 0.1; // 可按业务调整（默认含 10% 税费，可设为 0）
+  private taxRate: number = 0.1;
 
   aboutToAppear(): void {
     this.refreshItems();
   }
 
-private refreshItems(): void {
-  const nextItems: CartItem[] = CartStore.getItems().map((item: CartItem) => this.cloneCartItem(item));
+  private refreshItems(): void {
+    const nextItems: CartItem[] = CartStore.getItems().map((item: CartItem) => this.cloneCartItem(item));
 
-  const wasAllSelected: boolean =
-    (this.items.length === 0 && this.selectedKeys.length === 0) || // 首次进入：默认全选
-    (this.items.length > 0 && this.selectedKeys.length === this.items.length); // 之前就是全选：维持体验
+    const wasAllSelected: boolean =
+      (this.items.length === 0 && this.selectedKeys.length === 0) ||
+      (this.items.length > 0 && this.selectedKeys.length === this.items.length);
 
-  const nextKeySet: Set<string> = new Set<string>(nextItems.map((it: CartItem) => this.itemKey(it)));
+    const nextKeySet: Set<string> = new Set<string>(nextItems.map((it: CartItem) => this.itemKey(it)));
 
-  // 先取交集：移除已不存在的 key
-  const selected: Set<string> = new Set<string>(
-    this.selectedKeys.filter((k: string) => nextKeySet.has(k))
-  );
+    const selected: Set<string> = new Set<string>(
+      this.selectedKeys.filter((k: string) => nextKeySet.has(k))
+    );
 
-  // 仅在“首次/之前全选”的情况下，把新出现项自动选中
-  if (wasAllSelected) {
-    nextKeySet.forEach((k: string) => selected.add(k));
+    if (wasAllSelected) {
+      nextKeySet.forEach((k: string) => selected.add(k));
+    }
+
+    this.items = nextItems;
+    this.selectedKeys = Array.from(selected);
+    this.updateCouponMessageOnSubtotalChange();
   }
-
-  this.items = nextItems;
-  this.selectedKeys = Array.from(selected);
-  this.updateCouponMessageOnSubtotalChange();
-}
-
 
   private cloneCartItem(item: CartItem): CartItem {
     const copy: CartItem = {
@@ -94,7 +91,6 @@ private refreshItems(): void {
     return this.selectedKeys.indexOf(this.itemKey(item)) >= 0;
   }
 
-  // 单个勾选（checked 为 true/false），会联动全选与总价
   private setSelected(key: string, checked: boolean): void {
     const filtered: string[] = this.selectedKeys.filter((k: string) => k !== key);
     if (checked) {
@@ -104,7 +100,6 @@ private refreshItems(): void {
     this.updateCouponMessageOnSubtotalChange();
   }
 
-  // 全选勾选（checked 为 true/false），会联动每个商品与总价
   private setSelectAll(checked: boolean): void {
     if (!checked) {
       this.selectedKeys = [];
@@ -179,36 +174,34 @@ private refreshItems(): void {
       .reduce((sum: number, item: CartItem) => sum + item.count, 0);
   }
 
-private onCountChange(item: CartItem, delta: number): void {
-  const key: string = this.itemKey(item);
+  private onCountChange(item: CartItem, delta: number): void {
+    const key: string = this.itemKey(item);
 
-  // 以当前 this.items 为准，避免快速连点读到旧 count
-  const idx: number = this.items.findIndex((it: CartItem) => this.itemKey(it) === key);
-  if (idx < 0) {
-    return;
-  }
-
-  const current: number = this.items[idx].count;
-  const nextCount: number = current + delta;
-  if (nextCount <= 0) {
-    return;
-  }
-
-  // 先本地更新 items（乐观更新），保证 UI 立即变化
-  const nextItems: CartItem[] = this.items.map((it: CartItem) => {
-    if (this.itemKey(it) !== key) {
-      return it;
+    const idx: number = this.items.findIndex((it: CartItem) => this.itemKey(it) === key);
+    if (idx < 0) {
+      return;
     }
-    const copy: CartItem = this.cloneCartItem(it);
-    copy.count = nextCount;
-    return copy;
-  });
 
-  this.items = nextItems;
-  CartStore.updateCount(item.productId, item.skuId, nextCount);
+    const current: number = this.items[idx].count;
+    const nextCount: number = current + delta;
+    if (nextCount <= 0) {
+      return;
+    }
 
-  this.updateCouponMessageOnSubtotalChange();
-}
+    const nextItems: CartItem[] = this.items.map((it: CartItem) => {
+      if (this.itemKey(it) !== key) {
+        return it;
+      }
+      const copy: CartItem = this.cloneCartItem(it);
+      copy.count = nextCount;
+      return copy;
+    });
+
+    this.items = nextItems;
+    CartStore.updateCount(item.productId, item.skuId, nextCount);
+
+    this.updateCouponMessageOnSubtotalChange();
+  }
 
   private onRemove(item: CartItem): void {
     CartStore.remove(item.productId, item.skuId);
@@ -290,16 +283,12 @@ private onCountChange(item: CartItem, delta: number): void {
     .backgroundColor($r('app.color.home_background_color'))
   }
 
-
   @Builder
   private buildHeader(): void {
-    // 用 Column 承接“状态栏安全区 + 真正的头部栏”，并把背景刷成白色
     Column() {
-      // 1) 状态栏/刘海安全区占位
       Blank()
         .height(this.getUIContext().px2vp(this.topRectHeight))
 
-      // 2) 真正的头部栏（高度固定 40，不要再塞 top padding）
       Row() {
         Text('<')
           .fontSize($r('app.float.small_font_size'))
@@ -335,21 +324,21 @@ private onCountChange(item: CartItem, delta: number): void {
       })
     }
     .width(Const.FULL_WIDTH)
-    .backgroundColor(Color.White) // 关键：把安全区这块也刷成白色，就不“灰色留白”了
+    .backgroundColor(Color.White)
   }
-
-
 
   @Builder
   private buildContent(summary: CartSummary): void {
     Scroll() {
       Column() {
+        // ✅ 顶栏与“全选栏”之间留一点距离（你想要的“有一定的距离”）
+        Blank().height(12)
+
         this.buildSelectAllBar()
 
         ForEach(this.items, (item: CartItem) => {
           this.buildCartItem(item)
         }, (item: CartItem) => `${this.itemKey(item)}_${item.count}_${this.isSelected(item) ? 1 : 0}`)
-
 
         Column() {
           this.buildDiscountCard()
@@ -357,6 +346,7 @@ private onCountChange(item: CartItem, delta: number): void {
         .margin({ top: 12 })
 
         Column() {
+          // ✅ 不再从外部传 summary，内部读取状态，保证实时刷新
           this.buildPriceCard(summary)
         }
         .margin({ top: 12 })
@@ -397,13 +387,10 @@ private onCountChange(item: CartItem, delta: number): void {
         .fontColor(Color.Gray)
     }
     .width(Const.FULL_WIDTH)
-    .height(44)                         // ✅ 固定高度，变紧凑
-    .padding({ left: 12, right: 12 })   // ✅ 只保留左右内边距
-    .backgroundColor(Color.White)       // ✅ 不再“灰色大留白”
-    // 可选：加一条分隔线，让层次更清晰
-    // .border({ width: { bottom: 1 }, color: '#E8E8E8' })
+    .height(44)
+    .padding({ left: 12, right: 12 })
+    .backgroundColor(Color.White)
   }
-
 
   @Builder
   private buildCartItem(item: CartItem): void {
@@ -592,6 +579,9 @@ private onCountChange(item: CartItem, delta: number): void {
 
   @Builder
   private buildPriceCard(summary: CartSummary): void {
+    // ✅ 关键：在 Builder 内部读取 @State（通过 getSummary），建立依赖，保证实时刷新
+    // const summary: CartSummary = this.getSummary();
+
     Column() {
       this.buildPriceRow('商品总价', this.formatMoney(summary.subtotal))
       this.buildPriceRow('折扣优惠', `-${this.formatMoney(summary.discount)}`, true)
@@ -638,8 +628,9 @@ private onCountChange(item: CartItem, delta: number): void {
 
   @Builder
   private buildFooter(summary: CartSummary): void {
-    // 注意：这里不再把 bottomRectHeight 加进 footer 的 bottom padding，
-    // 底部安全区由 NavBar 承担，避免“Footer + NavBar”双重垫高导致留白/错位。
+    // ✅ 同理：在 Builder 内部读取 summary，保证“底部总计”实时刷新
+    // const summary: CartSummary = this.getSummary();
+
     if (this.editMode) {
       Row() {
         this.buildCheckbox(this.items.length > 0 && this.selectedKeys.length === this.items.length,
@@ -737,7 +728,6 @@ private onCountChange(item: CartItem, delta: number): void {
     })
   }
 
-  // 固定在页面最底部（在 Footer 下方），并承担 bottomRectHeight 安全区
   @Builder
   private buildNavBar(): void {
     Row() {
