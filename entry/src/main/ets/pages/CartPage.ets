@@ -120,6 +120,27 @@ struct CartPage {
     return `¥${amount.toFixed(2)}`;
   }
 
+  @Builder
+  private buildPriceRow(label: string, value: string, highlight: boolean = false, strong: boolean = false): void {
+    Row() {
+      Text(label)
+        .fontSize(strong ? 16 : $r('app.float.small_font_size'))
+        .fontWeight(strong ? FontWeight.Bold : FontWeight.Normal)
+        .fontColor(Color.Black)
+        .opacity(highlight ? Const.EIGHTY_OPACITY : Const.FULL_OPACITY)
+
+      Blank().layoutWeight(1)
+
+      Text(value)
+        .fontSize(strong ? 18 : $r('app.float.small_font_size'))
+        .fontWeight(strong ? FontWeight.Bold : FontWeight.Normal)
+        .fontColor(highlight ? $r('app.color.focus_color') : Color.Black)
+        .textAlign(TextAlign.End)
+    }
+    .width(Const.FULL_WIDTH)
+    .height($r('app.float.piece_line_height'))
+  }
+
   private calcSubtotal(): number {
     return this.items
       .filter((item: CartItem) => this.isSelected(item))
@@ -272,16 +293,17 @@ struct CartPage {
       if (this.items.length === 0) {
         this.buildEmpty()
       } else {
-        this.buildContent(this.getSummary())   // 中间滚动区
-        this.buildFooter(this.getSummary())    // 固定在内容区下方
+        this.buildContent()    // 不再传 summary
+        this.buildFooter()     // 不再传 summary
       }
 
-      this.buildNavBar() // 永远在最底部
+      this.buildNavBar()
     }
     .width(Const.FULL_WIDTH)
     .height(Const.FULL_HEIGHT)
     .backgroundColor($r('app.color.home_background_color'))
   }
+
 
   @Builder
   private buildHeader(): void {
@@ -328,10 +350,9 @@ struct CartPage {
   }
 
   @Builder
-  private buildContent(summary: CartSummary): void {
+  private buildContent(): void {
     Scroll() {
       Column() {
-        // ✅ 顶栏与“全选栏”之间留一点距离（你想要的“有一定的距离”）
         Blank().height(12)
 
         this.buildSelectAllBar()
@@ -346,8 +367,7 @@ struct CartPage {
         .margin({ top: 12 })
 
         Column() {
-          // ✅ 不再从外部传 summary，内部读取状态，保证实时刷新
-          this.buildPriceCard(summary)
+          this.buildPriceCard()   // 关键：不传 summary
         }
         .margin({ top: 12 })
 
@@ -366,6 +386,7 @@ struct CartPage {
     .layoutWeight(1)
     .width(Const.FULL_WIDTH)
   }
+
 
   @Builder
   private buildSelectAllBar(): void {
@@ -578,17 +599,18 @@ struct CartPage {
   }
 
   @Builder
-  private buildPriceCard(summary: CartSummary): void {
-    // ✅ 关键：在 Builder 内部读取 @State（通过 getSummary），建立依赖，保证实时刷新
-    // const summary: CartSummary = this.getSummary();
-
+  private buildPriceCard(): void {
     Column() {
-      this.buildPriceRow('商品总价', this.formatMoney(summary.subtotal))
-      this.buildPriceRow('折扣优惠', `-${this.formatMoney(summary.discount)}`, true)
-      this.buildPriceRow('平台服务费', this.formatMoney(summary.serviceFee))
-      this.buildPriceRow('运费', summary.shipping === 0 ? '免费' : this.formatMoney(summary.shipping), summary.shipping === 0)
+      this.buildPriceRow('商品总价', this.formatMoney(this.getSummary().subtotal))
+      this.buildPriceRow('折扣优惠', `-${this.formatMoney(this.getSummary().discount)}`, true)
+      this.buildPriceRow('平台服务费', this.formatMoney(this.getSummary().serviceFee))
+      this.buildPriceRow('运费',
+        this.getSummary().shipping === 0 ? '免费' : this.formatMoney(this.getSummary().shipping),
+        this.getSummary().shipping === 0
+      )
+
       if (this.taxRate > 0) {
-        this.buildPriceRow('税费', this.formatMoney(summary.tax))
+        this.buildPriceRow('税费', this.formatMoney(this.getSummary().tax))
       }
 
       Blank()
@@ -597,7 +619,7 @@ struct CartPage {
         .backgroundColor('#E8E8E8')
         .margin({ top: 8, bottom: 8 })
 
-      this.buildPriceRow('应付总计', this.formatMoney(summary.payable), false, true)
+      this.buildPriceRow('应付总计', this.formatMoney(this.getSummary().payable), false, true)
     }
     .width(Const.FULL_WIDTH)
     .padding({ left: 12, right: 12, top: 12, bottom: 12 })
@@ -605,31 +627,10 @@ struct CartPage {
     .borderRadius($r('app.float.product_layout_radius'))
   }
 
-  @Builder
-  private buildPriceRow(label: string, value: string, highlight: boolean = false, strong: boolean = false): void {
-    Row() {
-      Text(label)
-        .fontSize(strong ? 16 : $r('app.float.small_font_size'))
-        .fontWeight(strong ? FontWeight.Bold : FontWeight.Normal)
-        .fontColor(Color.Black)
-        .opacity(highlight ? Const.EIGHTY_OPACITY : Const.FULL_OPACITY)
-
-      Blank().layoutWeight(1)
-
-      Text(value)
-        .fontSize(strong ? 18 : $r('app.float.small_font_size'))
-        .fontWeight(strong ? FontWeight.Bold : FontWeight.Normal)
-        .fontColor(highlight ? $r('app.color.focus_color') : Color.Black)
-        .textAlign(TextAlign.End)
-    }
-    .width(Const.FULL_WIDTH)
-    .height($r('app.float.piece_line_height'))
-  }
 
   @Builder
-  private buildFooter(summary: CartSummary): void {
-    // ✅ 同理：在 Builder 内部读取 summary，保证“底部总计”实时刷新
-    // const summary: CartSummary = this.getSummary();
+  private buildFooter(): void {
+    // const summary: CartSummary = this.getSummary(); // ✅ 同理：在 Builder 内部建立依赖
 
     if (this.editMode) {
       Row() {
@@ -669,7 +670,7 @@ struct CartPage {
             .fontSize($r('app.float.smaller_font_size'))
             .fontColor(Color.Gray)
             .margin({ bottom: 2 })
-          Text(this.formatMoney(summary.payable))
+          Text(this.formatMoney(this.getSummary().payable))
             .fontSize(22)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.Black)
