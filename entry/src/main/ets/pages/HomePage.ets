@@ -76,7 +76,12 @@ struct HomePage {
         } catch {
         }
       })
-      this.navItem('账户', false, () => {})
+      this.navItem('账户', false, () => {
+        try {
+          this.getUIContext().getRouter().pushUrl({ url: 'pages/AccountPage' });
+        } catch {
+        }
+      })
     }
     .width(Const.FULL_WIDTH)
     .height($r('app.float.home_nav_height'))

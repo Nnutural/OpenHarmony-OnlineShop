@@ -44,8 +44,22 @@ struct CartPage {
 
   private taxRate: number = 0.1;
 
+  @State private summary: CartSummary = {
+    subtotal: 0,
+    discount: 0,
+    serviceFee: 0,
+    shipping: 0,
+    tax: 0,
+    payable: 0
+  };
+
   aboutToAppear(): void {
     this.refreshItems();
+  }
+
+  private recomputeSummary(): void {
+    // 关键：必须整体替换为新对象，不能只改字段
+    this.summary = this.getSummary();
   }
 
   private refreshItems(): void {
@@ -67,6 +81,8 @@ struct CartPage {
 
     this.items = nextItems;
     this.selectedKeys = Array.from(selected);
+
+    this.recomputeSummary();
     this.updateCouponMessageOnSubtotalChange();
   }
 
@@ -97,6 +113,7 @@ struct CartPage {
       filtered.push(key);
     }
     this.selectedKeys = filtered;
+    this.recomputeSummary();
     this.updateCouponMessageOnSubtotalChange();
   }
 
@@ -107,6 +124,7 @@ struct CartPage {
       return;
     }
     this.selectedKeys = this.items.map((item: CartItem) => this.itemKey(item));
+    this.recomputeSummary();
     this.updateCouponMessageOnSubtotalChange();
   }
 
@@ -220,7 +238,8 @@ struct CartPage {
 
     this.items = nextItems;
     CartStore.updateCount(item.productId, item.skuId, nextCount);
-
+    
+    this.recomputeSummary();
     this.updateCouponMessageOnSubtotalChange();
   }
 
@@ -247,6 +266,7 @@ struct CartPage {
     if (code === COUPON_SAVE10 || code === COUPON_OFF20) {
       this.appliedCoupon = code;
       this.couponMessage = code === COUPON_SAVE10 ? '已应用 9 折优惠' : '立减 20 元';
+      this.recomputeSummary();
       this.updateCouponMessageOnSubtotalChange();
     } else {
       this.appliedCoupon = '';
@@ -258,7 +278,8 @@ struct CartPage {
     if (!this.appliedCoupon) {
       return;
     }
-    const subtotal: number = this.calcSubtotal();
+    const subtotal: number = this.summary.subtotal;
+
     if (subtotal <= 0) {
       this.couponMessage = '请先选择商品';
     } else if (this.appliedCoupon === COUPON_SAVE10) {
@@ -267,6 +288,7 @@ struct CartPage {
       this.couponMessage = subtotal >= 20 ? '已减 20 元' : '已全部抵扣';
     }
   }
+
 
   private onCheckout(): void {
     if (this.selectedItemCount() === 0) {
@@ -601,16 +623,13 @@ struct CartPage {
   @Builder
   private buildPriceCard(): void {
     Column() {
-      this.buildPriceRow('商品总价', this.formatMoney(this.getSummary().subtotal))
-      this.buildPriceRow('折扣优惠', `-${this.formatMoney(this.getSummary().discount)}`, true)
-      this.buildPriceRow('平台服务费', this.formatMoney(this.getSummary().serviceFee))
-      this.buildPriceRow('运费',
-        this.getSummary().shipping === 0 ? '免费' : this.formatMoney(this.getSummary().shipping),
-        this.getSummary().shipping === 0
-      )
+      // this.buildPriceRow('商品总价', this.formatMoney(this.summary.subtotal))
+      // this.buildPriceRow('折扣优惠', `-${this.formatMoney(this.summary.discount)}`, true)
+      // this.buildPriceRow('平台服务费', this.formatMoney(this.summary.serviceFee))
+      // this.buildPriceRow('运费', this.summary.shipping === 0 ? '免费' : this.formatMoney(this.summary.shipping), this.summary.shipping === 0)
 
       if (this.taxRate > 0) {
-        this.buildPriceRow('税费', this.formatMoney(this.getSummary().tax))
+        this.buildPriceRow('税费', this.formatMoney(this.summary.tax))
       }
 
       Blank()
@@ -619,14 +638,13 @@ struct CartPage {
         .backgroundColor('#E8E8E8')
         .margin({ top: 8, bottom: 8 })
 
-      this.buildPriceRow('应付总计', this.formatMoney(this.getSummary().payable), false, true)
+      // this.buildPriceRow('应付总计', this.formatMoney(this.summary.payable), false, true)
     }
     .width(Const.FULL_WIDTH)
     .padding({ left: 12, right: 12, top: 12, bottom: 12 })
     .backgroundColor(Color.White)
     .borderRadius($r('app.float.product_layout_radius'))
   }
-
 
   @Builder
   private buildFooter(): void {
@@ -670,7 +688,7 @@ struct CartPage {
             .fontSize($r('app.float.smaller_font_size'))
             .fontColor(Color.Gray)
             .margin({ bottom: 2 })
-          Text(this.formatMoney(this.getSummary().payable))
+          Text(this.formatMoney(this.summary.payable))
             .fontSize(22)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.Black)
@@ -745,7 +763,12 @@ struct CartPage {
         }
       })
       this.navItem('购物车', true, () => {})
-      this.navItem('账户', false, () => {})
+      this.navItem('账户', false, () => {
+        try {
+          this.getUIContext().getRouter().replaceUrl({ url: 'pages/AccountPage' });
+        } catch {
+        }
+      })
     }
     .width(Const.FULL_WIDTH)
     .height($r('app.float.home_nav_height'))

@@ -3,6 +3,7 @@
     "pages/HomePage",
     "pages/SearchPage",
     "pages/ProductDetailPage",
-    "pages/CartPage"
+    "pages/CartPage",
+    "pages/AccountPage"
   ]
 }
